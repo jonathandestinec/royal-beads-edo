@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Royal Beads Edo
 
-## Getting Started
+Website for **Royal Beads Edo**, a coral beads and traditional attire business in the Oba Market area of Benin City, Edo State, Nigeria.
 
-First, run the development server:
+Built as a Tech4Youth (AG Southern AI Class) capstone project and intended as a portfolio piece.
+
+## What it does
+
+- Presents coral bead sets **by occasion** (weddings, chieftaincy, festivals, celebrations)
+- Explains how **custom orders** work (2 to 3 weeks, with ready dates confirmed only by the workshop)
+- Tells the **story and meaning of Edo coral**, plus a **coral care and authenticity** guide
+- Sends every enquiry to the group's shared **n8n Enquire form**
+- Includes a **Chatbase** assistant that answers common questions
+- Planned: a **bridal regalia builder** and an in-browser **virtual try-on** (MediaPipe Face Landmarker)
+
+All AI-generated imagery is labelled as concept images. See [`docs/ai-image-prompts`](docs/ai-image-prompts).
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router) with TypeScript
+- Tailwind CSS
+- Framer Motion
+- `@mediapipe/tasks-vision` (planned, for try-on)
+- Static export (`output: "export"`), deployed on Vercel. No backend and no secrets.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run lint
+npm run build    # static site in out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/                 layout and the single-page home
+  components/
+    sections/          Hero, Collections, Gallery, CustomOrder, CultureStory, CoralCare, Location, Enquire
+    ui/                shared UI (EnquireButton)
+  config/site.ts       business details and the Enquire form URL (one place to change it)
+  data/                typed content: collections, FAQ, care tips
+  features/
+    regalia-builder/   bridal set builder (planned)
+    try-on/            virtual try-on (planned)
+public/images/
+  concept/             AI concept images
+  try-on/              transparent bead overlays
+docs/
+  client-brief.md      the approved client brief
+  ai-image-prompts/    every AI image prompt used
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+Set the group's n8n form link in `src/config/site.ts`:
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+export const ENQUIRE_FORM_URL = "https://…";
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Until it is set, Enquire buttons scroll to the on-page Enquire section.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## The never rule
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site, chatbot and every feature must **never confirm a custom-set ready date**. Only the workshop confirms ready dates.
