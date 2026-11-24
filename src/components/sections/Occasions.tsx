@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { occasions, slate, type Occasion } from "@/data/content";
 import { buildEnquireUrl, enquireLinkProps } from "@/config/site";
@@ -38,7 +39,15 @@ export function Occasions() {
           <h2 id="occasions-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
             Sets for every occasion
           </h2>
-          <p className="m-0 text-lg leading-relaxed text-sand">Buy or rent. Made to order in two to three weeks.</p>
+          <div className="flex flex-col items-start gap-3">
+            <p className="m-0 text-lg leading-relaxed text-sand">Buy or rent. Made to order in two to three weeks.</p>
+            <Link href="/regalia" className="inline-flex h-11 items-center gap-2 text-[17px] font-semibold text-coral-soft no-underline hover:text-cream">
+              Build your wedding set
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+          </div>
         </div>
 
         {/* Phones and tablets: swipe. */}

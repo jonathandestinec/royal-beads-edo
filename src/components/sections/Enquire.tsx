@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/config/site";
 import { slate, steps } from "@/data/content";
@@ -87,6 +88,10 @@ export function Enquire() {
             />
           </svg>
         </div>
+
+        <Link href="/regalia" className="-mt-6 inline-flex h-11 items-center text-[15px] font-semibold text-cream underline underline-offset-4 hover:text-sand">
+          Planning a wedding? Build your set
+        </Link>
 
         <p className="m-0 text-sm tracking-wide text-sand">
           {area}, {city} · {site.hours}
