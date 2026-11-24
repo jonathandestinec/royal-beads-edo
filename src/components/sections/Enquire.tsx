@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/config/site";
-import { IMG, steps } from "@/data/content";
+import { steps } from "@/data/content";
 import { Backdrop, Slates, WriteOn, useSceneProgress } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
@@ -28,12 +28,11 @@ export function Enquire() {
       className="relative flex min-h-[100svh] items-center overflow-hidden py-28"
     >
       <Backdrop
-        src={IMG.wedding}
-        alt="A bride in a coral crown and layered coral collar and a groom in a coral cap, foreheads touching"
-        focus="50% 30%"
+        src="/video/yourday.mp4"
+        poster="/video/yourday-poster.jpg"
+        focus="50% 40%"
         progress={progress}
-        grade="sepia(0.15) saturate(0.95) brightness(0.45)"
-        concept
+        grade="brightness(0.5)"
       />
       <Slates tl="08 · Your day" />
 

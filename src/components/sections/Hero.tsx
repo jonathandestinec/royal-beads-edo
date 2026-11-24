@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { site } from "@/config/site";
-import { IMG, storyBeats } from "@/data/content";
-import { ConceptLabel, Slates } from "@/components/film/Film";
+import { storyBeats } from "@/data/content";
+import { Slates } from "@/components/film/Film";
 import { EnquireButton, pill, pillStyles } from "@/components/ui/EnquireButton";
 import { MusicToggle } from "@/components/ui/MusicToggle";
 import { Scribble } from "./Scribble";
@@ -51,14 +51,18 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative flex min-h-[760px] flex-col items-center overflow-hidden px-5 pt-[104px] pb-14 sm:min-h-[100svh] sm:px-[4vw]"
     >
-      <motion.img
-        src={IMG.heroPortrait}
-        alt="A woman with closed eyes wearing a chunky necklace of red-orange coral beads and a coral earring"
+      <motion.video
+        src="/video/opening.mp4"
+        poster="/video/opening-poster.jpg"
+        autoPlay={!reduce}
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
         style={{ y: imgY, scale: imgScale }}
-        className="absolute inset-0 h-full w-full object-cover object-[50%_30%] [filter:sepia(0.2)_saturate(0.9)_brightness(0.55)]"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_30%] [filter:brightness(0.6)]"
       />
       <Slates tl="01 · Taoué" />
-      <ConceptLabel className="right-5 bottom-14 sm:right-[4vw] sm:bottom-16" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_45%,rgba(28,20,17,0.55)_0%,rgba(28,20,17,0.2)_70%),linear-gradient(to_top,rgba(28,20,17,0.9)_0%,rgba(28,20,17,0.1)_45%,rgba(28,20,17,0.5)_100%)]" />
 
       {/* Loading veil: covers the whole screen while the story draws, then lifts. */}

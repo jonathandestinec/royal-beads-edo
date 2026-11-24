@@ -20,7 +20,7 @@ export function Footer() {
           <p className="m-0 text-[13px] md:text-right">
             Images marked &ldquo;Concept image&rdquo; are AI-generated concepts, not real customers or finished work.
             Photography: Sasu Photography Studio (CC BY-SA 4.0), Alvy Bih (CC BY 4.0) and Gary Todd (CC0), via Wikimedia
-            Commons. Coral reef footage: Jun Ho Lee, via Pexels.
+            Commons. Footage via Pexels: cottonbro studio, Jun Ho Lee and RDNE Stock project.
           </p>
         </div>
       </div>

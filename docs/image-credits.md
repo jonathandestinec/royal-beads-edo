@@ -12,3 +12,5 @@ The site currently uses these licensed photographs from Wikimedia Commons. They 
 Photos are resized, cropped and colour-graded on the page. The credit line in the site footer satisfies the attribution terms.
 
 | `public/video/sea.mp4` | Close-Up of Coral Reefs Underwater (graded, cropped, 9 s) | Jun Ho Lee | Pexels licence | https://www.pexels.com/video/close-up-of-coral-reefs-underwater-34127729/ |
+| `public/video/opening.mp4` | A woman holding a necklace in her hand (graded, cropped, 9 s) | cottonbro studio | Pexels licence | https://www.pexels.com/video/a-woman-holding-a-necklace-in-her-hand-9541065/ |
+| `public/video/yourday.mp4` | A Couple Dancing In Celebration Of Kwanzaa (graded, 9 s) | RDNE Stock project | Pexels licence | https://www.pexels.com/video/a-couple-dancing-in-celebration-of-kwanzaa-6192901/ |

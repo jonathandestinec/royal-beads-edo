@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { IMG } from "@/data/content";
 import { COWRIE_SMALL_PATH } from "@/components/brand/CowrieMark";
-import { Slates } from "@/components/film/Film";
+import { ConceptLabel, Slates } from "@/components/film/Film";
 import { EnquireButton } from "@/components/ui/EnquireButton";
 
 /**
@@ -34,14 +34,15 @@ export function TryOnTeaser() {
         >
           <div className="absolute inset-0">
             <motion.img
-              src={IMG.bride}
-              alt="A woman wearing layered coral necklaces and a coral crown"
+              src={IMG.heroPortrait}
+              alt="A woman with closed eyes wearing a chunky necklace of red-orange coral beads"
               style={{ scale: imgScale }}
-              className="h-full w-full object-cover object-[50%_35%] [filter:sepia(0.2)_saturate(0.9)_brightness(0.92)]"
+              className="h-full w-full object-cover object-[28%_45%] [filter:sepia(0.1)_saturate(0.95)_brightness(0.95)]"
               loading="lazy"
             />
           </div>
         </motion.div>
+        <ConceptLabel className="right-5 bottom-8 sm:right-[4vw]" />
         <motion.div
           className="flex flex-col items-start gap-5"
           initial={{ opacity: 0, y: 24 }}
