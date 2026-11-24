@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Taoué brand tokens (approved brand canvas, 23 Nov 2026).
+ * Saoky Brown leads; coral is an accent only (the bead on the é, the main button).
+ */
+@theme {
+  --color-night: #1c1411;
+  --color-espresso: #2e211c;
+  --color-saoky: #4a3022;
+  --color-maroon: #6a2c24;
+  --color-envelope: #5b2a22;
+  --color-rust: #a5502f;
+  --color-taupe: #8b6e57;
+  --color-sand: #e8d9c0;
+  --color-cream: #f5ede3;
+  --color-paper: #fbf6ef;
+  --color-coral: #d2503b;
+  --color-coral-soft: #e8755f;
+  --color-gold: #c9a25e;
+  --color-gold-soft: #d8b977;
+  --color-muted: #cdb79a;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-formal: var(--font-gloock), Georgia, serif;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+
+  --ease-silk: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Fraunces at its softest, most rounded setting: the brand's display voice. */
+@utility soft {
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+@utility soft-text {
+  font-variation-settings: "opsz" 48, "SOFT" 100;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Warm, filmic grade so placeholder photos sit with the references. */
+@utility warm {
+  filter: sepia(0.3) saturate(0.88) brightness(0.9);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-night);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

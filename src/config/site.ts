@@ -5,8 +5,8 @@
 
 /**
  * The group's shared n8n Enquire form.
- * TODO: replace with the real n8n Form Trigger URL from the group.
- * While this is empty, Enquire buttons fall back to the #enquire section on the page.
+ * TODO: replace with the real n8n Form Trigger URL once the group creates it.
+ * While this is empty, Enquire buttons scroll to the #enquire section on the page.
  */
 export const ENQUIRE_FORM_URL = "";
 
@@ -20,19 +20,29 @@ export const ENQUIRE_MESSAGE_FIELD = "Message";
 export const ENQUIRE_BUSINESS_VALUE = "Royal Beads Edo";
 
 export const site = {
+  /** Brand name. Always shown with the client's real name. */
+  brand: "Taoué",
   name: "Royal Beads Edo",
-  tagline: "Coral beads and traditional attire from the heart of Benin City",
+  owner: "Ella Ozera",
+  tagline: "Coral beads and traditional attire from Benin City",
   description:
-    "Royal Beads Edo makes and sells coral bead sets and traditional attire for Edo weddings, chieftaincy and celebrations, from the Oba Market area of Benin City. We ship to the UK, US and beyond.",
+    "Taoué by Royal Beads Edo makes and sells coral bead sets and traditional attire for Edo weddings, chieftaincy, festivals and celebrations, from the Oba Market area of Benin City. We ship to the UK, US and beyond.",
   location: {
     area: "Oba Market area",
     city: "Benin City",
     state: "Edo State",
     country: "Nigeria",
   },
+  hours: "Monday to Saturday, 9am to 6pm",
   /** Custom sets usually take 2 to 3 weeks. Only the workshop confirms a ready date. */
-  customSetLeadTime: "2–3 weeks (ready date confirmed by our workshop)",
+  customSetLeadTime: "2 to 3 weeks",
 } as const;
+
+/**
+ * Optional background music. Put a licence-free track in public/audio/ and set its path here
+ * (for example "/audio/afro-jazz.mp3") to show the play button. Empty hides it.
+ */
+export const MUSIC_SRC = "";
 
 /**
  * Build a link to the Enquire form, optionally pre-filling the message.

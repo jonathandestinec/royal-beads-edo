@@ -1,25 +1,31 @@
 import {
+  Header,
   Hero,
-  Collections,
-  Gallery,
+  Marquee,
+  Occasions,
+  TryOnTeaser,
   CustomOrder,
   CultureStory,
   CoralCare,
-  Location,
   Enquire,
+  Footer,
 } from "@/components/sections";
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <Hero />
-      <Collections />
-      <Gallery />
-      <CustomOrder />
-      <CultureStory />
-      <CoralCare />
-      <Location />
-      <Enquire />
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Marquee />
+        <Occasions />
+        <TryOnTeaser />
+        <CustomOrder />
+        <CultureStory />
+        <CoralCare />
+        <Enquire />
+      </main>
+      <Footer />
+    </>
   );
 }

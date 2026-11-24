@@ -38,8 +38,11 @@ npm run build    # static site in out/
 src/
   app/                 layout and the single-page home
   components/
-    sections/          Hero, Collections, Gallery, CustomOrder, CultureStory, CoralCare, Location, Enquire
-    ui/                shared UI (EnquireButton)
+    brand/             CowrieMark (pattern, full, small, line), Wordmark, CowriePattern
+    motion/            Framer Motion reveals and the reduced-motion provider
+    sections/          Header, Hero (animated scribble story), Marquee, Occasions, TryOnTeaser,
+                       CustomOrder, CultureStory, CoralCare, Enquire, Footer
+    ui/                EnquireButton, MusicToggle (opt-in Afro-jazz)
   config/site.ts       business details and the Enquire form URL (one place to change it)
   data/                typed content: collections, FAQ, care tips
   features/
