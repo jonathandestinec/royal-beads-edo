@@ -28,17 +28,17 @@ Audit of 24 Nov against the Student Brief.
 - [x] A Gallery section of the concept images (R2)
 - [x] Phone check of the whole site at 375 px (R5)
 
-## Phase 3. Virtual try-on (next)
+## Phase 3. Virtual try-on (built 24 Nov, on the preview for a phone test)
 
 Answers the client's main problem: customers can't see a set on themselves before buying.
 
-- [ ] Camera try-on with MediaPipe Face Landmarker, fully in the browser (S3)
-- [ ] Necklace under the chin, crown on the forehead; scale and tilt with the face; smoothing
-- [ ] Style picker; take a photo to save
-- [ ] Selfie upload when there's no camera
-- [ ] "Love this look? Enquire" prefills the form with the set name (R3)
-- [ ] Bead PNGs labelled as concept designs (R10)
-- [ ] Wire the "Try it on" button to it
+- [x] Camera try-on with MediaPipe Face Landmarker, fully in the browser (S3)
+- [x] Necklace under the chin, crown on the forehead; scale and tilt with the face; smoothing
+- [x] Style picker; take a photo to save
+- [x] Selfie upload when there's no camera
+- [x] "Love this look? Enquire" prefills the form with the set name (R3)
+- [x] Bead PNGs labelled as concept designs (R10)
+- [x] Wire the "Try it on" button to it
 
 ## Phase 4. Group work and demo (Fri 27 Nov)
 
