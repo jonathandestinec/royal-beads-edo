@@ -27,6 +27,7 @@ Audit of 24 Nov against the Student Brief.
 - [x] "How custom orders work" shows 5 steps, as the brief says (R2)
 - [x] A Gallery section of the concept images (R2)
 - [x] Phone check of the whole site at 375 px (R5)
+- [x] On phones, a vertical swipe over the gallery strip or the occasion cards scrolls the page; sideways swipes still move the strip (R5)
 
 ## Phase 3. Virtual try-on (next)
 

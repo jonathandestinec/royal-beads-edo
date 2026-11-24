@@ -42,7 +42,7 @@ export function Occasions() {
         </div>
 
         {/* Phones and tablets: swipe. */}
-        <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-[4vw] lg:hidden">
+        <div className="swipe-x flex gap-4 px-5 pb-4 sm:px-[4vw] lg:hidden">
           {occasions.map((o) => (
             <Card key={o.title} o={o} className="w-[78vw] max-w-[360px] shrink-0 snap-start" />
           ))}
