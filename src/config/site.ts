@@ -67,3 +67,13 @@ export function buildEnquireUrl(message?: string): string {
  */
 export const CHAT_INJECT_SRC = "https://cdn.botpress.cloud/webchat/v5.0/inject.js";
 export const CHAT_CONFIG_SRC = "https://files.bpcontent.cloud/2026/11/24/14/20261124142712-I5MLIQE7.js";
+
+/**
+ * Group admin dashboard (/dashboard). The "Enquiries" tab of the group Google Sheet,
+ * published to the web as CSV (File > Share > Publish to web > Enquiries > CSV).
+ * The link is public by design: the sheet holds test enquiries only. Empty shows the setup steps.
+ */
+export const DASHBOARD_CSV_URL = "";
+
+/** How often the dashboard checks the sheet for new enquiries, in seconds. */
+export const DASHBOARD_REFRESH_SECONDS = 20;
