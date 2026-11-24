@@ -68,6 +68,21 @@
     radial-gradient(ellipse 120% 95% at 50% 50%, transparent 45%, rgba(18, 12, 10, 0.75) 100%);
 }
 
+/*
+ * A sideways swipe row (gallery strip, occasion cards). Locked to the x axis: overflow-x alone
+ * makes the browser treat overflow-y as auto too, so a few pixels of spare height turned the
+ * row into a tiny vertical scroller that swallowed the page's vertical swipe on phones.
+ */
+@layer components {
+  .swipe-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+  }
+}
+
 /* Notched corners, after the Siloha cards and Saoky tiles. */
 .notch {
   clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);

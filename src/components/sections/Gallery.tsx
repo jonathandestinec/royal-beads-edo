@@ -37,15 +37,15 @@ export function Gallery() {
       <div className="bg-night py-3">
         <Sprockets />
         <ul
-          className="m-0 flex list-none snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 py-3 [scrollbar-width:none] sm:scroll-px-[4vw] sm:px-[4vw] lg:mx-auto lg:grid lg:max-w-[1296px] lg:grid-cols-5 lg:overflow-visible"
+          className="swipe-x m-0 flex list-none gap-3 scroll-px-5 px-5 py-3 [scrollbar-width:none] sm:scroll-px-[4vw] sm:px-[4vw] lg:mx-auto lg:grid lg:max-w-[1296px] lg:grid-cols-5 lg:overflow-visible"
           aria-label="Concept images"
         >
           {gallery.map((g, i) => (
             <motion.li
               key={g.src}
               className="w-[72vw] max-w-[320px] shrink-0 snap-start lg:w-auto lg:max-w-none"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.9, ease: EASE, delay: i * 0.08 }}
             >

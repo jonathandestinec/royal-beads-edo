@@ -31,7 +31,7 @@ export const PHOTO_CREDIT: Record<string, string> = {
 /** The chapters of the story, in scroll order. Used by the side rail and the scene slates. */
 export const chapters = [
   { id: "top", label: "Taoué" },
-  { id: "opening", label: "The cowrie" },
+  { id: "opening", label: "The coral" },
   { id: "sea", label: "The sea" },
   { id: "court", label: "The court" },
   { id: "hands", label: "The hands" },
@@ -153,4 +153,4 @@ export const coralChecks = [
 ];
 
 /** The opening scene's line, after the hero. */
-export const openingLine = "Long before coins, there was the cowrie.";
+export const openingLine = "Every set begins with a single coral bead.";
