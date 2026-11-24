@@ -4,7 +4,7 @@ Where the project is, what's done and what's next. Update this file in the same 
 
 Deadlines: Wed 25 Nov (images, website, chatbot) · Fri 27 Nov (publish, test, demo day).
 
-**Current phase: 3. Virtual try-on** (Phase 2 done and live 24 Nov)
+**Current phase: 4. Group work and demo** (Phases 2 and 3 done and live 24 Nov)
 
 ## Phase 1. Scored basics (done 24 Nov)
 
@@ -29,7 +29,7 @@ Audit of 24 Nov against the Student Brief.
 - [x] Phone check of the whole site at 375 px (R5)
 - [x] On phones, a vertical swipe over the gallery strip or the occasion cards scrolls the page; sideways swipes still move the strip (R5)
 
-## Phase 3. Virtual try-on (built 24 Nov, on the preview for a phone test)
+## Phase 3. Virtual try-on (done 24 Nov, live)
 
 Answers the client's main problem: customers can't see a set on themselves before buying.
 
@@ -40,19 +40,23 @@ Answers the client's main problem: customers can't see a set on themselves befor
 - [x] "Love this look? Enquire" prefills the form with the set name (R3)
 - [x] Bead PNGs labelled as concept designs (R10)
 - [x] Wire the "Try it on" button to it
+- [x] Camera tested on a real phone (24 Nov)
 
 ## Phase 4. Group work and demo (Fri 27 Nov)
 
+- [x] Workflow published, so the site's form is live (24 Nov)
 - [ ] Business dropdown filled with every group business
-- [ ] Telegram chat ID set; HOT and CHECK alerts arrive
+- [x] Telegram chat ID set; alerts arrive in the group "Group 3 Capstone Project" (24 Nov)
 - [ ] 3 tests (HOT, WARM, CHECK) from 3 different websites, plus "hello"
 - [ ] Whole-workflow screenshot, every node renamed by its builder; list of who built what
 - [x] Group dashboard built at /dashboard: live counts by label and business, filterable list, checks the sheet every 20 s
 - [x] Dashboard link: Enquiries tab published as CSV, live at /dashboard
+- [x] Tutor's Botpress approval screenshot in the hand-in folder (24 Nov)
+- [x] Sheet screenshot with the HOT row in the hand-in folder (25 Nov)
 - [ ] Demo rehearsal and a backup screen recording of the try-on
 - [ ] Turn the workflow off after demo day (S4)
 
 ## Later (only if time allows)
 
-- Bridal regalia builder (price ranges only, prefills the form)
+- Bridal regalia builder (price ranges only, prefills the form; next, after the dashboard)
 - Occasion guide with "shop this look" links
