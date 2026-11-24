@@ -40,17 +40,18 @@ Answers the client's main problem: customers can't see a set on themselves befor
 - [x] "Love this look? Enquire" prefills the form with the set name (R3)
 - [x] Bead PNGs labelled as concept designs (R10)
 - [x] Wire the "Try it on" button to it
-- [ ] Camera tested on a real phone
+- [x] Camera tested on a real phone (24 Nov)
 
 ## Phase 4. Group work and demo (Fri 27 Nov)
 
-- [ ] Workflow published, so the site's form is live
+- [x] Workflow published, so the site's form is live (24 Nov)
 - [ ] Business dropdown filled with every group business
 - [x] Telegram chat ID set; alerts arrive in the group "Group 3 Capstone Project" (24 Nov)
 - [ ] 3 tests (HOT, WARM, CHECK) from 3 different websites, plus "hello"
 - [ ] Whole-workflow screenshot, every node renamed by its builder; list of who built what
 - [ ] Dashboard link
-- [ ] Tutor's Botpress approval screenshot and a sheet screenshot with the HOT row in the hand-in folder
+- [x] Tutor's Botpress approval screenshot in the hand-in folder (24 Nov)
+- [ ] Sheet screenshot with the HOT row in the hand-in folder
 - [ ] Demo rehearsal and a backup screen recording of the try-on
 - [ ] Turn the workflow off after demo day (S4)
 
