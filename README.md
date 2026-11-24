@@ -64,7 +64,7 @@ Set the group's n8n form link in `src/config/site.ts`:
 export const ENQUIRE_FORM_URL = "https://…";
 ```
 
-Until it is set, Enquire buttons scroll to the on-page Enquire section.
+If it is ever emptied, Enquire buttons fall back to the on-page Enquire section. Every link pre-fills the Business field and, where it can, the Message.
 
 ## The never rule
 

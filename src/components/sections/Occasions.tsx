@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { occasions, type Occasion } from "@/data/content";
-import { buildEnquireUrl } from "@/config/site";
+import { buildEnquireUrl, enquireLinkProps } from "@/config/site";
 import { ConceptLabel } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 
@@ -56,7 +56,7 @@ export function Occasions() {
           <div className="flex w-[22vw] max-w-[340px] shrink-0 flex-col justify-center gap-4">
             <CowrieMark variant="small" size={28} color="#e8d9c0" />
             <p className="m-0 font-display soft text-[40px] leading-tight font-semibold">Not sure which set?</p>
-            <a href={buildEnquireUrl("Hello, which set would suit my occasion?")} className="self-start text-lg font-semibold text-coral-soft underline underline-offset-4">
+            <a href={buildEnquireUrl("Hello, which set would suit my occasion?")} {...enquireLinkProps} className="self-start text-lg font-semibold text-coral-soft underline underline-offset-4">
               Ask us
             </a>
           </div>
@@ -70,6 +70,7 @@ function Card({ o, className }: { o: Occasion; className: string }) {
   return (
     <motion.a
       href={buildEnquireUrl(`Hello, I'd like to ask about ${o.title.toLowerCase()} sets.`)}
+      {...enquireLinkProps}
       whileHover="hover"
       className={`notch group relative flex h-[min(62svh,560px)] flex-col justify-end overflow-hidden bg-night p-3 no-underline ${className}`}
     >

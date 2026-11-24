@@ -4,11 +4,13 @@
  */
 
 /**
- * The group's shared n8n Enquire form.
- * TODO: replace with the real n8n Form Trigger URL once the group creates it.
- * While this is empty, Enquire buttons scroll to the #enquire section on the page.
+ * The group's shared n8n Enquire form (Form Trigger, production URL).
+ * If this is ever emptied, Enquire buttons fall back to the #enquire section on the page.
  */
-export const ENQUIRE_FORM_URL = "";
+export const ENQUIRE_FORM_URL = "https://deestnee.app.n8n.cloud/form/group-enquiry";
+
+/** Name of the form's business dropdown field, pre-filled so enquiries are routed to us. */
+export const ENQUIRE_BUSINESS_FIELD = "Business";
 
 /**
  * Name of the n8n form field to pre-fill with a chosen set (regalia builder, try-on).
@@ -44,6 +46,9 @@ export const site = {
  */
 export const MUSIC_SRC = "";
 
+/** Link attributes for an enquiry: the external form opens in a new tab. */
+export const enquireLinkProps = ENQUIRE_FORM_URL ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
 /**
  * Build a link to the Enquire form, optionally pre-filling the message.
  * n8n forms accept pre-filled values as query parameters named after the field.
@@ -51,6 +56,7 @@ export const MUSIC_SRC = "";
 export function buildEnquireUrl(message?: string): string {
   if (!ENQUIRE_FORM_URL) return "#enquire";
   const url = new URL(ENQUIRE_FORM_URL);
+  url.searchParams.set(ENQUIRE_BUSINESS_FIELD, ENQUIRE_BUSINESS_VALUE);
   if (message) url.searchParams.set(ENQUIRE_MESSAGE_FIELD, message);
   return url.toString();
 }
