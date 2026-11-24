@@ -5,7 +5,7 @@ import { BuilderLoader } from "@/features/regalia-builder/BuilderLoader";
 export const metadata: Metadata = {
   title: `Build your wedding set | ${site.brand} by ${site.name}`,
   description:
-    "Build a coral bead wedding set for the bride, the groom or both: crown, neck piece, wrist beads and attire, with a price range for every piece. Buy or rent, then enquire.",
+    "Build a coral bead wedding set for the bride, the groom or both: crown, neck piece, wrist beads and attire. Buy or rent, then enquire for a quote.",
 };
 
 export default function RegaliaPage() {

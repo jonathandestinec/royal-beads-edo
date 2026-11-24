@@ -16,7 +16,7 @@ Rubric check for: <feature>
 [ ] R7 AI hero is still the first thing on the page
 [ ] R10/R11 every image labelled (Concept image or photo credit)
 [ ] C1 no ready dates anywhere
-[ ] C3 prices as ranges only
+[ ] C3 no prices; quotes on request through the Enquire form
 [ ] S2 no keys or tokens; S3 nothing uploaded
 ```
 
