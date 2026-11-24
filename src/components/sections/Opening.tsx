@@ -6,8 +6,8 @@ import { Backdrop, Slates, WriteOn, useSceneProgress } from "@/components/film/F
 import { Scribble } from "./Scribble";
 
 /**
- * The opening scene, straight after the hero: the cowrie film clip, sepia-graded, with the
- * hand-drawn cowrie and coral story and the first line of the story. It fades up out of the
+ * The opening scene, straight after the hero: the coral film clip, sepia-graded, with the
+ * hand-drawn brand mark and the first line of the story. It fades up out of the
  * hero's dark edge so the two read as one film.
  */
 export function Opening() {
