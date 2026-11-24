@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { occasions, type Occasion } from "@/data/content";
 import { buildEnquireUrl } from "@/config/site";
-import { ConceptLabel, Slates } from "@/components/film/Film";
+import { ConceptLabel } from "@/components/film/Film";
+import { CowrieMark } from "@/components/brand/CowrieMark";
 
 /**
  * Chapter 5: sets for every occasion. On wide screens the scene pins and the cards slide across
@@ -12,15 +13,28 @@ import { ConceptLabel, Slates } from "@/components/film/Film";
  */
 export function Occasions() {
   const ref = useRef<HTMLElement>(null);
+  const track = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const [distance, setDistance] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const x = useTransform(scrollYProgress, [0.05, 0.95], reduce ? ["0%", "0%"] : ["0%", "-52%"]);
+  // Slide exactly far enough for the last panel to land fully on screen, clear of the chapter rail.
+  const x = useTransform(scrollYProgress, [0.08, 0.92], reduce ? [0, 0] : [0, -distance]);
+
+  useEffect(() => {
+    const measure = () => {
+      const el = track.current;
+      if (el) setDistance(Math.max(0, el.scrollWidth - window.innerWidth + 96));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   return (
     <section ref={ref} id="occasions" aria-labelledby="occasions-title" className="relative bg-espresso lg:h-[260vh]">
-      <div className="relative flex flex-col justify-center overflow-hidden py-24 lg:sticky lg:top-0 lg:h-[100svh] lg:py-0">
-        <Slates tl="05 · Occasions" />
+      <div className="relative flex flex-col justify-center overflow-hidden py-24 lg:sticky lg:top-0 lg:h-[100svh] lg:pt-24 lg:pb-10">
         <div className="mx-auto mb-10 grid w-full max-w-[1296px] items-end gap-6 px-5 sm:px-[4vw] md:grid-cols-2 md:gap-12">
+          <span className="text-[11px] uppercase tracking-[0.22em] text-cream/70 sm:text-xs md:col-span-2">05 · Occasions</span>
           <h2 id="occasions-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
             Sets for every occasion
           </h2>
@@ -35,11 +49,12 @@ export function Occasions() {
         </div>
 
         {/* Wide screens: the row slides as the page scrolls. */}
-        <motion.div style={{ x }} className="hidden gap-6 pl-[4vw] lg:flex">
+        <motion.div ref={track} style={{ x }} className="hidden w-max gap-6 pl-[4vw] lg:flex">
           {occasions.map((o) => (
             <Card key={o.title} o={o} className="w-[30vw] max-w-[440px] shrink-0" />
           ))}
-          <div className="flex w-[30vw] max-w-[440px] shrink-0 flex-col justify-center gap-4 pr-[4vw]">
+          <div className="flex w-[22vw] max-w-[340px] shrink-0 flex-col justify-center gap-4">
+            <CowrieMark variant="small" size={28} color="#e8d9c0" />
             <p className="m-0 font-display soft text-[40px] leading-tight font-semibold">Not sure which set?</p>
             <a href={buildEnquireUrl("Hello, which set would suit my occasion?")} className="self-start text-lg font-semibold text-coral-soft underline underline-offset-4">
               Ask us

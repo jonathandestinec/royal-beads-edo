@@ -133,7 +133,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: later + 0.8 }}
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-cream/70"
+        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 [@media(min-height:900px)]:flex flex-col items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-cream/70"
       >
         Scroll
         <span className="relative block h-10 w-px overflow-hidden bg-cream/20">
