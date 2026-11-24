@@ -16,7 +16,8 @@ export function Occasions() {
           </h2>
           <p className="m-0 text-lg leading-relaxed text-sand">
             Choose the day you are dressing for. Every set can be bought or rented, and made to order in two to three
-            weeks.
+            weeks. Prices are ranges in naira; we quote each set after hearing what you need, and quote in pounds or
+            dollars for orders abroad.
           </p>
         </Reveal>
         <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -43,6 +44,7 @@ export function Occasions() {
                   <span className="flex flex-col gap-1">
                     <span className="font-display soft text-[26px] leading-none font-semibold">{o.title}</span>
                     <span className="text-[15px] leading-snug text-saoky">{o.line}</span>
+                    <span className="mt-1 font-formal text-[15px] text-rust">{o.price}</span>
                   </span>
                   <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-coral text-[#fff5ec] transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">

@@ -10,12 +10,15 @@ export type Occasion = {
   image: string;
   alt: string;
   focus: string;
+  /** Price range shown on the card. Ranges only: the final price is agreed per set. */
+  price: string;
 };
 
 export const occasions: Occasion[] = [
   {
     title: "Weddings",
     line: "Bride and groom regalia, our most requested sets",
+    price: "Buy from ₦450,000 · rent from ₦80,000",
     image: "/images/placeholder/couple.jpg",
     alt: "A bride and groom in coral bead crowns and necklaces",
     focus: "50% 15%",
@@ -23,6 +26,7 @@ export const occasions: Occasion[] = [
   {
     title: "Chieftaincy",
     line: "Beads for titles and ceremonies",
+    price: "From ₦300,000",
     image: "/images/placeholder/queen.jpg",
     alt: "A statue wearing layered coral necklaces and cuffs",
     focus: "50% 15%",
@@ -30,6 +34,7 @@ export const occasions: Occasion[] = [
   {
     title: "Festivals",
     line: "Igue and other cultural days",
+    price: "From ₦60,000",
     image: "/images/placeholder/bride.jpg",
     alt: "A coral bead crown up close",
     focus: "50% 4%",
@@ -37,6 +42,7 @@ export const occasions: Occasion[] = [
   {
     title: "Celebrations",
     line: "Birthdays, naming days and family occasions",
+    price: "From ₦40,000",
     image: "/images/placeholder/bride.jpg",
     alt: "Layered coral necklaces and cuffs",
     focus: "50% 72%",

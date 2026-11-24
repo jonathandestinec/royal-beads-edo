@@ -24,9 +24,10 @@ export function CoralCare() {
             <div className="flex flex-col gap-3">
               <h3 className="m-0 font-display soft text-[38px] leading-tight font-semibold">Is it real coral?</h3>
               <ul className="m-0 flex list-none flex-col gap-2.5 p-0 text-[17px] leading-relaxed text-saoky">
-                <li>Real coral shows tiny natural pits, lines and small changes of colour from bead to bead. Plastic and glass look perfectly even.</li>
-                <li>Real coral is cool to the touch and feels heavier than plastic beads of the same size.</li>
-                <li>Every Taoué set comes with a note on what it is made from, and we are happy to answer questions before you buy.</li>
+                <li><strong>Look closely.</strong> Natural coral shows fine growth lines, tiny pits and gentle changes of colour from bead to bead. Plastic and glass look perfectly even.</li>
+                <li><strong>Feel the weight.</strong> Coral is dense, so it feels cool and heavier in the hand than plastic beads of the same size.</li>
+                <li><strong>Check the holes.</strong> If the colour is darker inside the drill holes or in small cracks, the bead has likely been dyed.</li>
+                <li><strong>Skip the home tests.</strong> Acid, flame and scratch tests damage real coral. For a valuable set, ask a gemologist, or ask us: every Taoué set comes with a note on what it is made from.</li>
               </ul>
             </div>
           </RevealItem>
