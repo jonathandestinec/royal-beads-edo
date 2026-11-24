@@ -48,7 +48,7 @@ Answers the client's main problem: customers can't see a set on themselves befor
 - [ ] 3 tests (HOT, WARM, CHECK) from 3 different websites, plus "hello"
 - [ ] Whole-workflow screenshot, every node renamed by its builder; list of who built what
 - [x] Group dashboard built at /dashboard: live counts by label and business, filterable list, checks the sheet every 20 s
-- [ ] Dashboard link (publish the Enquiries tab as CSV, set DASHBOARD_CSV_URL)
+- [x] Dashboard link: Enquiries tab published as CSV, live at /dashboard
 - [ ] Demo rehearsal and a backup screen recording of the try-on
 - [ ] Turn the workflow off after demo day (S4)
 
