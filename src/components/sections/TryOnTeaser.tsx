@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { IMG } from "@/data/content";
 import { COWRIE_SMALL_PATH } from "@/components/brand/CowrieMark";
 import { Slates } from "@/components/film/Film";
-import { EnquireButton, pill, pillStyles } from "@/components/ui/EnquireButton";
+import { EnquireButton } from "@/components/ui/EnquireButton";
 
 /**
  * Chapter 6: see it on you. The client's real problem was a set that looked different in person
@@ -26,7 +26,7 @@ export function TryOnTeaser() {
 
   return (
     <section ref={ref} id="try-on" aria-labelledby="try-title" className="relative overflow-hidden bg-night py-24 sm:py-32">
-      <Slates tl="Chapter 06 · Try it on" tr="Coming soon" />
+      <Slates tl="06 · Try it on" />
       <div className="mx-auto grid max-w-[1296px] items-center gap-12 px-5 sm:px-[4vw] md:grid-cols-2">
         <motion.div
           style={{ scale: maskScale, WebkitMaskImage: COWRIE_MASK, maskImage: COWRIE_MASK, WebkitMaskSize: "100% 100%", maskSize: "100% 100%" }}
@@ -52,19 +52,12 @@ export function TryOnTeaser() {
           <h2 id="try-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
             See it on you before you buy
           </h2>
-          <p className="m-0 max-w-[30em] text-lg leading-relaxed text-sand">
-            A photo can only show so much. Turn on your camera and the virtual try-on places coral crowns and necklaces on
-            you. Swap styles, match them to your attire, then send the look straight into your enquiry. It runs on your
-            phone, and no photo leaves it.
+          <p className="m-0 max-w-[26em] text-lg leading-relaxed text-sand">
+            Try a crown or necklace on with your phone camera. Nothing leaves your phone.
           </p>
-          <div className="flex flex-wrap gap-3">
-            <EnquireButton variant="cream" message="Hello, I'd like to try on a coral set.">
-              Try it on
-            </EnquireButton>
-            <a href="#enquire" className={`${pill} ${pillStyles.ghost}`}>
-              Upload a selfie instead
-            </a>
-          </div>
+          <EnquireButton variant="cream" message="Hello, I'd like to try on a coral set.">
+            Try it on
+          </EnquireButton>
         </motion.div>
       </div>
     </section>

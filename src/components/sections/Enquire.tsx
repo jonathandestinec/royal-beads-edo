@@ -18,7 +18,7 @@ const EASE = [0.45, 0.05, 0.3, 1] as const;
 export function Enquire() {
   const { ref, progress } = useSceneProgress();
   const reduce = useReducedMotion();
-  const { area, city, state, country } = site.location;
+  const { area, city } = site.location;
 
   return (
     <section
@@ -35,7 +35,7 @@ export function Enquire() {
         grade="sepia(0.15) saturate(0.95) brightness(0.45)"
         concept
       />
-      <Slates tl="Chapter 08 · Your day" tr={`${area} · ${city}`} bl={`Open ${site.hours}`} />
+      <Slates tl="08 · Your day" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col items-center gap-10 px-5 text-center sm:px-[4vw]">
         <CowrieMark variant="pattern" size={64} color="#e6d2b0" patternColor="#5a3826" />
@@ -81,9 +81,8 @@ export function Enquire() {
           </svg>
         </div>
 
-        <p className="m-0 max-w-[40em] text-base leading-relaxed text-sand">
-          Visit us at the {area}, {city}, {state}, {country}, {site.hours}. We reply with options and price ranges; ready
-          dates are always confirmed by our workshop.
+        <p className="m-0 text-sm tracking-wide text-sand">
+          {area}, {city} · {site.hours}
         </p>
       </div>
     </section>

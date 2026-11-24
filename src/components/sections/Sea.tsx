@@ -19,7 +19,7 @@ export function Sea() {
       className="relative flex min-h-[100svh] scroll-mt-0 items-center justify-center overflow-hidden px-5 text-center"
     >
       <Backdrop src="/video/sea.mp4" poster="/video/sea-poster.jpg" progress={progress} grade="brightness(0.72) contrast(1.05)" />
-      <Slates tl="Chapter 02 · The sea" tr="Before the market" bl="Footage: Jun Ho Lee, Pexels" />
+      <Slates tl="02 · The sea" />
 
       {/* A hand-drawn wave that writes itself across the screen, with the constant wobble. */}
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-[62%] h-20 w-full" aria-hidden="true">
@@ -50,16 +50,6 @@ export function Sea() {
         <h2 id="sea-title" className="m-0 font-display soft text-[clamp(40px,6vw,88px)] leading-[0.98] font-semibold tracking-[-0.02em]">
           <WriteOn lines={["It begins in the sea,", "as living coral."]} />
         </h2>
-        <motion.p
-          className="m-0 max-w-[34em] text-lg leading-relaxed text-sand"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          Precious coral grows slowly in warm seas, a branch at a time. Polished and cut into beads, it carries that slow
-          time with it.
-        </motion.p>
       </div>
     </section>
   );

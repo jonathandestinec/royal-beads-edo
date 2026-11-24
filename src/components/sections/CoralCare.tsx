@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { careTips, coralChecks } from "@/data/content";
+import { coralChecks } from "@/data/content";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 import { CowriePattern } from "@/components/brand/CowriePattern";
 import { Slates } from "@/components/film/Film";
@@ -16,16 +16,13 @@ export function CoralCare() {
   return (
     <section id="care" aria-labelledby="care-title" className="relative overflow-hidden bg-rust py-24 sm:py-32">
       <CowriePattern bg="#a5502f" fg="#994729" tile={72} />
-      <Slates tl="Chapter 07 · Real coral" tr="A buyer's guide" />
+      <Slates tl="07 · Real coral" />
       <div className="relative mx-auto flex max-w-[1296px] flex-col gap-12 px-5 sm:px-[4vw]">
         <div className="grid items-end gap-6 text-paper md:grid-cols-2 md:gap-12">
           <h2 id="care-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
             Is it real coral?
           </h2>
-          <p className="m-0 text-lg leading-relaxed">
-            It is the question we hear most. Four checks that never harm a bead, and how to keep yours beautiful for
-            years.
-          </p>
+          <p className="m-0 text-lg leading-relaxed">The question we hear most. Four gentle checks.</p>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -37,7 +34,7 @@ export function CoralCare() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1], delay: i * 0.12 }}
               whileHover={{ rotate: 0, y: -6 }}
-              className="flex min-h-[300px] flex-col gap-4 bg-paper p-7 text-rust shadow-[0_18px_40px_rgba(40,12,8,0.3)]"
+              className="flex min-h-[240px] flex-col gap-4 bg-paper p-7 text-rust shadow-[0_18px_40px_rgba(40,12,8,0.3)]"
             >
               <span className="font-formal text-4xl leading-none">{i + 1}</span>
               <h3 className="m-0 font-display soft text-[28px] leading-tight font-semibold">{c.title}</h3>
@@ -46,15 +43,10 @@ export function CoralCare() {
           ))}
         </div>
 
-        <div className="notch grid gap-6 bg-envelope p-8 text-cream md:grid-cols-[auto_1fr_1fr_1fr] md:items-center">
-          <CowrieMark variant="line" size={44} color="#d8b977" />
-          {careTips.map((t) => (
-            <div key={t.title} className="flex flex-col gap-1">
-              <span className="font-display soft text-xl font-semibold">{t.title}</span>
-              <span className="text-[15px] leading-relaxed text-sand">{t.body}</span>
-            </div>
-          ))}
-        </div>
+        <p className="m-0 flex items-center gap-4 text-paper">
+          <CowrieMark variant="line" size={28} color="#fbf6ef" />
+          <span className="text-base">Store it wrapped in cloth. Put it on last, take it off first.</span>
+        </p>
       </div>
     </section>
   );

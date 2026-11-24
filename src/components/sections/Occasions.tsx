@@ -19,15 +19,12 @@ export function Occasions() {
   return (
     <section ref={ref} id="occasions" aria-labelledby="occasions-title" className="relative bg-espresso lg:h-[260vh]">
       <div className="relative flex flex-col justify-center overflow-hidden py-24 lg:sticky lg:top-0 lg:h-[100svh] lg:py-0">
-        <Slates tl="Chapter 05 · Occasions" tr="Buy or rent" />
+        <Slates tl="05 · Occasions" />
         <div className="mx-auto mb-10 grid w-full max-w-[1296px] items-end gap-6 px-5 sm:px-[4vw] md:grid-cols-2 md:gap-12">
           <h2 id="occasions-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
             Sets for every occasion
           </h2>
-          <p className="m-0 text-lg leading-relaxed text-sand">
-            Every set can be bought or rented, and made to order in two to three weeks. Prices are ranges in naira; we
-            quote each set after hearing what you need, and quote in pounds or dollars for orders abroad.
-          </p>
+          <p className="m-0 text-lg leading-relaxed text-sand">Buy or rent. Made to order in two to three weeks.</p>
         </div>
 
         {/* Phones and tablets: swipe. */}
@@ -44,7 +41,6 @@ export function Occasions() {
           ))}
           <div className="flex w-[30vw] max-w-[440px] shrink-0 flex-col justify-center gap-4 pr-[4vw]">
             <p className="m-0 font-display soft text-[40px] leading-tight font-semibold">Not sure which set?</p>
-            <p className="m-0 text-lg text-sand">Tell us the day and we will suggest the right one.</p>
             <a href={buildEnquireUrl("Hello, which set would suit my occasion?")} className="self-start text-lg font-semibold text-coral-soft underline underline-offset-4">
               Ask us
             </a>

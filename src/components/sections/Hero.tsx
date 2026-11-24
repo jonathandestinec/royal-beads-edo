@@ -57,7 +57,7 @@ export function Hero() {
         style={{ y: imgY, scale: imgScale }}
         className="absolute inset-0 h-full w-full object-cover object-[50%_30%] [filter:sepia(0.2)_saturate(0.9)_brightness(0.55)]"
       />
-      <Slates tl="Chapter 01 · Taoué" tr="Oba Market · Benin City" bl="Coral beads & traditional attire" br="Est. 2026" />
+      <Slates tl="01 · Taoué" />
       <ConceptLabel className="right-5 bottom-14 sm:right-[4vw] sm:bottom-16" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_45%,rgba(28,20,17,0.55)_0%,rgba(28,20,17,0.2)_70%),linear-gradient(to_top,rgba(28,20,17,0.9)_0%,rgba(28,20,17,0.1)_45%,rgba(28,20,17,0.5)_100%)]" />
 
@@ -111,8 +111,7 @@ export function Hero() {
           transition={{ duration: 1, ease: EASE, delay: later + 0.15 }}
           className="m-0 max-w-[620px] text-lg leading-relaxed text-sand"
         >
-          {site.brand} by {site.name}, {site.location.area}. Wedding, chieftaincy and festival sets, shipped to the UK,
-          US and beyond.
+          {site.brand} by {site.name} · {site.location.area}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -121,20 +120,34 @@ export function Hero() {
           className="mt-1 flex flex-wrap justify-center gap-3"
         >
           <EnquireButton message="Hello, I'd like to ask about a coral set.">Enquire about a set</EnquireButton>
-          <a href="#try-on" className={`${pill} ${pillStyles.cream}`}>
-            Try it on
+          <a href="#sea" className={`${pill} ${pillStyles.ghost}`}>
+            Begin the story
           </a>
         </motion.div>
       </motion.div>
 
-      <motion.div
+      {/* A quiet scroll cue: a short line that keeps drawing downwards. */}
+      <motion.a
+        href="#sea"
+        aria-label="Scroll to the story"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: later + 0.6 }}
-        className="relative z-10 mt-8 sm:absolute sm:right-[4vw] sm:bottom-10 sm:mt-0"
+        transition={{ duration: 1, delay: later + 0.8 }}
+        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-cream/70"
       >
+        Scroll
+        <span className="relative block h-10 w-px overflow-hidden bg-cream/20">
+          <motion.span
+            className="absolute inset-x-0 top-0 block h-1/2 bg-cream"
+            animate={reduce ? undefined : { y: ["-100%", "200%"] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </span>
+      </motion.a>
+
+      <div className="absolute right-[4vw] bottom-8 z-10 hidden sm:block">
         <MusicToggle />
-      </motion.div>
+      </div>
     </section>
   );
 }

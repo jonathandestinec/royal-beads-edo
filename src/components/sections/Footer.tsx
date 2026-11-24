@@ -11,18 +11,13 @@ export function Footer() {
           <CowrieMark variant="pattern" size={120} color="#d2503b" patternColor="#4a1d17" title="Taoué cowrie mark" />
           <Wordmark size="clamp(72px, 10vw, 150px)" by bead="#e8755f" className="text-cream" />
         </Reveal>
-        <div className="grid gap-8 text-[15px] leading-relaxed text-sand md:grid-cols-3">
+        <div className="grid gap-8 text-[15px] leading-relaxed text-sand md:grid-cols-[1fr_2fr]">
           <p className="m-0">
-            {site.brand} by {site.name}. Coral beads and traditional attire, {site.location.area}, {site.location.city}.
+            {site.location.area}, {site.location.city}
+            <br />
+            {site.hours}
           </p>
-          <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
-            <a href="#sea" className="text-sand hover:text-cream">Our story</a>
-            <a href="#occasions" className="text-sand hover:text-cream">Occasions</a>
-            <a href="#try-on" className="text-sand hover:text-cream">Try on</a>
-            <a href="#care" className="text-sand hover:text-cream">Real coral</a>
-            <a href="#enquire" className="text-sand hover:text-cream">Enquire</a>
-          </nav>
-          <p className="m-0 text-[13px]">
+          <p className="m-0 text-[13px] md:text-right">
             Images marked &ldquo;Concept image&rdquo; are AI-generated concepts, not real customers or finished work.
             Photography: Sasu Photography Studio (CC BY-SA 4.0), Alvy Bih (CC BY 4.0) and Gary Todd (CC0), via Wikimedia
             Commons. Coral reef footage: Jun Ho Lee, via Pexels.

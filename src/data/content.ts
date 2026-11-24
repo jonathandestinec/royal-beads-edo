@@ -80,43 +80,16 @@ export const occasions: Occasion[] = [
 ];
 
 export const steps = [
-  {
-    title: "Tell us the occasion",
-    body: "Share the event, your date and the look you want through the Enquire form.",
-  },
-  {
-    title: "Choose and try on",
-    body: "Pick your coral, see it on you, and agree the set and price range with us.",
-  },
-  {
-    title: "The workshop confirms",
-    body: "Sets usually take 2 to 3 weeks. Our workshop confirms your ready date, and a person reviews any event less than 3 weeks away.",
-  },
+  { title: "Tell us your day", body: "The occasion, the date, the look." },
+  { title: "Choose and try on", body: "See your coral on you before you decide." },
+  { title: "We make it", body: "2 to 3 weeks. Our workshop confirms your ready date." },
 ];
 
 export const coralChecks = [
-  {
-    title: "Look closely",
-    body: "Natural coral shows fine growth lines, tiny pits and gentle changes of colour from bead to bead. Plastic and glass look perfectly even.",
-  },
-  {
-    title: "Feel the weight",
-    body: "Coral is dense, so it feels cool and heavier in the hand than plastic beads of the same size.",
-  },
-  {
-    title: "Check the holes",
-    body: "If the colour is darker inside the drill holes or in small cracks, the bead has likely been dyed.",
-  },
-  {
-    title: "Skip the home tests",
-    body: "Acid, flame and scratch tests damage real coral. For a valuable set, ask a gemologist, or ask us: every Taoué set comes with a note on what it is made from.",
-  },
-];
-
-export const careTips = [
-  { title: "Store it soft", body: "Wrap each strand in cloth, apart from harder jewellery." },
-  { title: "Last on, first off", body: "Put coral on after perfume and lotion; take it off before washing." },
-  { title: "We ship abroad", body: "Sets travel to the UK, US and beyond, packed in cloth, boxed and tracked." },
+  { title: "Look closely", body: "Real coral has fine lines and gentle shifts of colour. Plastic looks perfectly even." },
+  { title: "Feel the weight", body: "Coral feels cool and heavy in the hand." },
+  { title: "Check the holes", body: "Darker colour inside the drill holes means dye." },
+  { title: "Skip home tests", body: "Acid and flame damage real coral. Ask a gemologist, or ask us." },
 ];
 
 export const storyBeats = [

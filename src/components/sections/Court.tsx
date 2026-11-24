@@ -55,7 +55,7 @@ export function Court() {
         ))}
         <div className="vignette absolute inset-0" />
         <Glyph progress={scrollYProgress} />
-        <Slates tl="Chapter 03 · The court" tr="Kingdom of Benin" />
+        <Slates tl="03 · The court" />
         <h2 id="court-title" className="sr-only">
           Cowrie and coral in the history of Benin
         </h2>
