@@ -10,10 +10,17 @@ Built as a Tech4Youth (AG Southern AI Class) capstone project and intended as a 
 - Explains how **custom orders** work (2 to 3 weeks, with ready dates confirmed only by the workshop)
 - Tells the **story and meaning of Edo coral**, plus a **coral care and authenticity** guide
 - Sends every enquiry to the group's shared **n8n Enquire form**
-- Includes a **Chatbase** assistant that answers common questions
+- Includes the **Taoué Assistant** (Botpress) that answers common questions
 - Planned: a **bridal regalia builder** and an in-browser **virtual try-on** (MediaPipe Face Landmarker)
 
 All AI-generated imagery is labelled as concept images. See [`docs/ai-image-prompts`](docs/ai-image-prompts).
+
+## Project docs
+
+- [Feature rules](docs/RULES.md): the scored rules, client rules and the checklist every change is checked against
+- [Phases](docs/PHASES.md): what's done, what's in progress and what's next
+- [CLAUDE.md](CLAUDE.md): the steps every coding session runs before, during and after a change
+- [PR template](.github/pull_request_template.md): puts the rules checklist in every pull request
 
 ## Tech stack
 
@@ -40,8 +47,8 @@ src/
   components/
     brand/             CowrieMark (pattern, full, small, line), Wordmark, CowriePattern
     motion/            Framer Motion reveals and the reduced-motion provider
-    sections/          Header, Hero (animated scribble story), Marquee, Occasions, TryOnTeaser,
-                       CustomOrder, CultureStory, CoralCare, Enquire, Footer
+    sections/          Header, Hero (AI image 1), Opening (cowrie film and scribble), Sea, Court,
+                       Hands, Occasions, TryOnTeaser, CoralCare, Gallery, Enquire, Footer
     ui/                EnquireButton, MusicToggle (opt-in Afro-jazz)
   config/site.ts       business details and the Enquire form URL (one place to change it)
   data/                typed content: collections, FAQ, care tips
@@ -49,9 +56,12 @@ src/
     regalia-builder/   bridal set builder (planned)
     try-on/            virtual try-on (planned)
 public/images/
-  concept/             AI concept images
+  concept/             AI concept images (each shown with a "Concept image" tag)
+  photos/              licensed Wikimedia photos (each shown with an on-image credit)
   try-on/              transparent bead overlays
 docs/
+  RULES.md             feature rules and the checklist
+  PHASES.md            project phases
   client-brief.md      the approved client brief
   ai-image-prompts/    every AI image prompt used
 ```
