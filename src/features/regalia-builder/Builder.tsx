@@ -103,7 +103,7 @@ export default function Builder() {
         </svg>
 
         <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-3 px-5 pb-3 lg:px-8 lg:pb-8">
-          <div aria-live="polite">
+          <div aria-live="polite" className="rounded-2xl bg-night/75 px-4 py-2.5 backdrop-blur-sm">
             <p className="m-0 text-[11px] uppercase tracking-[0.2em] text-sand/80">{plan === "rent" ? "To rent" : "To buy"}</p>
             <AnimatePresence mode="wait" initial={false}>
               <motion.p

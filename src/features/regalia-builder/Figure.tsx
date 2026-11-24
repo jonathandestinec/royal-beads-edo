@@ -30,7 +30,8 @@ export function Figure({ who, look, x = 0, idPrefix }: { who: Who; look: Look; x
   const fabric = attire.art.startsWith("#") ? attire.art : "";
   const skin = `url(#${idPrefix}-skin)`;
 
-  const ns = (FACE * NECK.faces) / NECK.w;
+  // The figure is drawn with broad shoulders, so the strands are spread a little wider than on a face.
+  const ns = (FACE * 2.9) / NECK.w;
   const cs = (FACE * CROWN.faces) / CROWN.w;
   const ws = WRIST_W / WRIST.w;
 
@@ -60,13 +61,13 @@ export function Figure({ who, look, x = 0, idPrefix }: { who: Who; look: Look; x
       {/* Body */}
       <g fill={skin}>
         <path d="M180 196 L178 240 L222 240 L220 196 Z" />
-        <path d="M178 232 C160 250 110 252 86 272 C70 286 66 310 66 340 L334 340 C334 310 330 286 314 272 C290 252 240 250 222 232 Z" />
+        <path d="M178 232 C164 250 118 256 92 270 C74 282 66 306 66 340 L334 340 C334 306 326 282 308 270 C282 256 236 250 222 232 Z" />
         <path d="M150 262 C120 270 112 300 110 340 L106 600 L294 600 L290 340 C288 300 280 270 250 262 Z" />
         <path d="M66 330 C62 400 64 460 70 520 C72 540 96 540 96 520 C98 460 104 400 112 340 Z" />
         <path d="M334 330 C338 400 336 460 330 520 C328 540 304 540 304 520 C302 460 296 400 288 340 Z" />
         <ellipse cx="83" cy="545" rx="13" ry="19" />
         <ellipse cx="317" cy="545" rx="13" ry="19" />
-        <ellipse cx="200" cy="150" rx="52" ry="64" />
+        <path d="M200 86 C234 86 252 112 252 146 C252 184 230 214 200 214 C170 214 148 184 148 146 C148 112 166 86 200 86 Z" />
       </g>
       {/* Soft light on the face and shoulders */}
       <ellipse cx="184" cy="140" rx="26" ry="36" fill="#fff" opacity="0.06" />
@@ -121,18 +122,9 @@ function Sprite({ id, art, x, y, w, h }: { id: string; art: string; x: number; y
   return (
     <AnimatePresence initial={false}>
       {href && (
-        <motion.image
-          key={id}
-          href={href}
-          x={x}
-          y={y}
-          width={w}
-          height={h}
-          initial={{ opacity: 0, y: y - 10 }}
-          animate={{ opacity: 1, y }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease }}
-        />
+        <motion.g key={id} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease }}>
+          <image href={href} x={x} y={y} width={w} height={h} />
+        </motion.g>
       )}
     </AnimatePresence>
   );

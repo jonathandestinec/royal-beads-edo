@@ -52,7 +52,10 @@ Answers the client's main problem: customers can't see a set on themselves befor
 - [ ] Demo rehearsal and a backup screen recording of the try-on
 - [ ] Turn the workflow off after demo day (S4)
 
+## Phase 5. Extras (built 25 Nov, on the preview)
+
+- [x] Bridal regalia builder at /regalia: bride, groom or both; crown, neck piece, wrists, attire; live preview of the concept designs; price range per piece and for the set (C3); buy or rent; no ready dates (C1); "Enquire about this set" prefills the form with the set (R3); "Try this crown and necklace on" opens the try-on with that look; linked from Occasions and Your day
+
 ## Later (only if time allows)
 
-- Bridal regalia builder (price ranges only, prefills the form)
 - Occasion guide with "shop this look" links
