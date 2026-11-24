@@ -3,8 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * The hero's hand-drawn story (after the INNA reference): a woven cloth frame, the cowrie,
- * then a strand of coral beads. Each line draws itself on, and an SVG turbulence filter keeps
+ * The opening scene's hand-drawn story (after the INNA reference): a woven cloth frame, the cowrie,
+ * then a strand of coral beads. Each line draws itself on when the drawing scrolls into view, and an SVG turbulence filter keeps
  * every stroke gently "boiling" afterwards, like a pencil line in an animated film.
  */
 
@@ -59,7 +59,8 @@ export function Scribble({ className = "" }: { className?: string }) {
             key={i}
             d={l.d}
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               pathLength: { duration: l.duration, delay: l.delay, ease: EASE },
               opacity: { duration: 0.2, delay: l.delay },
@@ -73,7 +74,8 @@ export function Scribble({ className = "" }: { className?: string }) {
             cy={cy}
             r={r}
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               pathLength: { duration: 0.45, delay: 3 + i * 0.15, ease: EASE },
               opacity: { duration: 0.15, delay: 3 + i * 0.15 },

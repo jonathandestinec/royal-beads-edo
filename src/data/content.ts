@@ -3,7 +3,8 @@
  *
  * Images:
  * - /images/concept: AI concept images (prompts in docs/ai-image-prompts). Always shown with a "Concept image" label.
- * - /images/placeholder: licensed photos from Wikimedia Commons (credits in docs/image-credits.md).
+ * - /images/photos: licensed photos from Wikimedia Commons (credits in docs/image-credits.md).
+ *   Always shown with an on-image credit tag (PHOTO_CREDIT below), never as the shop's own sets.
  * - /video: stock footage from Pexels, graded for the site (credits in docs/image-credits.md).
  */
 
@@ -13,23 +14,41 @@ export const IMG = {
   wedding: "/images/concept/3-service-wedding-sets.jpg",
   bracelets: "/images/concept/4-service-coral-bracelets.jpg",
   workshop: "/images/concept/5-service-custom-workshop.jpg",
-  bride: "/images/placeholder/bride.jpg",
-  couple: "/images/placeholder/couple.jpg",
-  queen: "/images/placeholder/queen.jpg",
-  cowries: "/images/placeholder/cowries.jpg",
+  bride: "/images/photos/bride.jpg",
+  couple: "/images/photos/couple.jpg",
+  queen: "/images/photos/queen.jpg",
+  cowries: "/images/photos/cowries.jpg",
 } as const;
 
-/** The chapters of the story, in scroll order. Used by the side rail. */
+/** Author and licence of each licensed photo, shown as a small tag on the image itself. */
+export const PHOTO_CREDIT: Record<string, string> = {
+  [IMG.bride]: "Sasu Photography Studio, CC BY-SA 4.0",
+  [IMG.couple]: "Sasu Photography Studio, CC BY-SA 4.0",
+  [IMG.queen]: "Alvy Bih, CC BY 4.0",
+  [IMG.cowries]: "Gary Todd, CC0",
+};
+
+/** The chapters of the story, in scroll order. Used by the side rail and the scene slates. */
 export const chapters = [
   { id: "top", label: "Taoué" },
+  { id: "opening", label: "The cowrie" },
   { id: "sea", label: "The sea" },
   { id: "court", label: "The court" },
   { id: "hands", label: "The hands" },
   { id: "occasions", label: "Occasions" },
   { id: "try-on", label: "Try it on" },
   { id: "care", label: "Real coral" },
+  { id: "gallery", label: "Gallery" },
   { id: "enquire", label: "Your day" },
 ] as const;
+
+export type ChapterId = (typeof chapters)[number]["id"];
+
+/** The slate caption for a chapter, numbered from its place in the story, e.g. "03 · The sea". */
+export function slate(id: ChapterId): string {
+  const i = chapters.findIndex((c) => c.id === id);
+  return `${String(i + 1).padStart(2, "0")} · ${chapters[i].label}`;
+}
 
 export type Occasion = {
   title: string;
@@ -38,6 +57,8 @@ export type Occasion = {
   alt: string;
   focus: string;
   concept?: boolean;
+  /** Author and licence, for licensed photos. */
+  credit?: string;
   /** Price range shown on the card. Ranges only: the final price is agreed per set. */
   price: string;
 };
@@ -58,6 +79,7 @@ export const occasions: Occasion[] = [
     price: "From ₦300,000",
     image: IMG.queen,
     alt: "A bronze statue wearing layered coral necklaces and cuffs",
+    credit: PHOTO_CREDIT[IMG.queen],
     focus: "50% 15%",
   },
   {
@@ -66,6 +88,7 @@ export const occasions: Occasion[] = [
     price: "From ₦60,000",
     image: IMG.bride,
     alt: "A woman in a coral bead crown and coral necklaces",
+    credit: PHOTO_CREDIT[IMG.bride],
     focus: "50% 8%",
   },
   {
@@ -79,10 +102,47 @@ export const occasions: Occasion[] = [
   },
 ];
 
+/** How a custom order works. Never show or promise a ready date: only the workshop confirms it. */
 export const steps = [
   { title: "Tell us your day", body: "The occasion, the date, the look." },
-  { title: "Choose and try on", body: "See your coral on you before you decide." },
-  { title: "We make it", body: "2 to 3 weeks. Our workshop confirms your ready date." },
+  { title: "Choose your set", body: "By occasion, to buy or to rent." },
+  { title: "Try it on", body: "See your coral on you before you decide." },
+  { title: "We make it by hand", body: "Custom sets usually take 2 to 3 weeks." },
+  { title: "The workshop confirms your ready date", body: "Only our workshop sets the date." },
+];
+
+/** The gallery: every AI concept image, each shown with its "Concept image" tag. */
+export const gallery = [
+  {
+    src: IMG.heroPortrait,
+    title: "The coral collar",
+    alt: "A woman with closed eyes and braided hair wearing a chunky two-strand necklace of red-orange coral beads",
+    focus: "50% 40%",
+  },
+  {
+    src: IMG.poster,
+    title: "The crown",
+    alt: "A poster of a woman in a tall coral bead crown and layered coral collar, the coral kept in red against black and white",
+    focus: "50% 35%",
+  },
+  {
+    src: IMG.wedding,
+    title: "Wedding sets",
+    alt: "A bride in a coral crown and layered coral collar with her groom in a coral cap and necklace",
+    focus: "50% 30%",
+  },
+  {
+    src: IMG.bracelets,
+    title: "Bracelets",
+    alt: "A hand resting on cream cloth wearing three stacked coral bead bracelets with small gold spacers",
+    focus: "45% 45%",
+  },
+  {
+    src: IMG.workshop,
+    title: "At the worktable",
+    alt: "An artisan's hands stringing red-orange coral beads at a wooden worktable beside a bowl of loose beads",
+    focus: "55% 45%",
+  },
 ];
 
 export const coralChecks = [
@@ -92,8 +152,5 @@ export const coralChecks = [
   { title: "Skip home tests", body: "Acid and flame damage real coral. Ask a gemologist, or ask us." },
 ];
 
-export const storyBeats = [
-  "Long before coins, there was the cowrie.",
-  "Then coral, worn at court and at every wedding.",
-  "Today, Benin City still strings it by hand.",
-];
+/** The opening scene's line, after the hero. */
+export const openingLine = "Long before coins, there was the cowrie.";

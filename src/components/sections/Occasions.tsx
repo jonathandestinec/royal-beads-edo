@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { occasions, type Occasion } from "@/data/content";
+import { occasions, slate, type Occasion } from "@/data/content";
 import { buildEnquireUrl, enquireLinkProps } from "@/config/site";
-import { ConceptLabel } from "@/components/film/Film";
+import { ConceptLabel, PhotoCredit } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 
 /**
- * Chapter 5: sets for every occasion. On wide screens the scene pins and the cards slide across
+ * Occasions: sets for every occasion. On wide screens the scene pins and the cards slide across
  * as you scroll; on phones it is a swipeable row. Each card opens the enquiry for that occasion.
  */
 export function Occasions() {
@@ -34,7 +34,7 @@ export function Occasions() {
     <section ref={ref} id="occasions" aria-labelledby="occasions-title" className="relative bg-espresso lg:h-[260vh]">
       <div className="relative flex flex-col justify-center overflow-hidden py-24 lg:sticky lg:top-0 lg:h-[100svh] lg:pt-24 lg:pb-10">
         <div className="mx-auto mb-10 grid w-full max-w-[1296px] items-end gap-6 px-5 sm:px-[4vw] md:grid-cols-2 md:gap-12">
-          <span className="text-[11px] uppercase tracking-[0.22em] text-cream/70 sm:text-xs md:col-span-2">05 · Occasions</span>
+          <span className="text-[11px] uppercase tracking-[0.22em] text-cream/70 sm:text-xs md:col-span-2">{slate("occasions")}</span>
           <h2 id="occasions-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
             Sets for every occasion
           </h2>
@@ -84,6 +84,7 @@ function Card({ o, className }: { o: Occasion; className: string }) {
         loading="lazy"
       />
       {o.concept && <ConceptLabel className="top-3 left-3" />}
+      {o.credit && <PhotoCredit credit={o.credit} className="top-3 left-3" />}
       <motion.div
         variants={{ hover: { y: -6 } }}
         transition={{ duration: 0.5, ease: [0.2, 0.7, 0.2, 1] }}

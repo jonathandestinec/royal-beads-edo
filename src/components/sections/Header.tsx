@@ -7,10 +7,11 @@ import { Wordmark } from "@/components/brand/Wordmark";
 import { EnquireButton } from "@/components/ui/EnquireButton";
 
 const links = [
-  { href: "#sea", label: "Our story" },
+  { href: "#opening", label: "Our story" },
   { href: "#occasions", label: "Occasions" },
   { href: "#try-on", label: "Try on" },
   { href: "#care", label: "Real coral" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#enquire", label: "Custom orders" },
 ];
 

@@ -14,6 +14,20 @@ export function ConceptLabel({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * Small on-image credit for a licensed third-party photo, in the same style as the concept tag,
+ * so it is never mistaken for the shop's own sets.
+ */
+export function PhotoCredit({ credit, className = "" }: { credit: string; className?: string }) {
+  return (
+    <span
+      className={`pointer-events-none absolute z-20 max-w-[calc(100%-24px)] rounded-full bg-night/60 px-2.5 py-1 text-[11px] font-medium tracking-wide text-sand/90 backdrop-blur-[2px] ${className}`}
+    >
+      Photo · {credit}
+    </span>
+  );
+}
+
 type Slate = { tl?: string; tr?: string; bl?: string; br?: string };
 
 /** Tiny film-slate captions in the four corners of a scene. */

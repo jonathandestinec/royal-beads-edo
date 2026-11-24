@@ -2,8 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { IMG } from "@/data/content";
-import { ConceptLabel, Slates } from "@/components/film/Film";
+import { IMG, PHOTO_CREDIT, slate } from "@/data/content";
+import { ConceptLabel, PhotoCredit, Slates } from "@/components/film/Film";
 
 type Frame = {
   src: string;
@@ -12,6 +12,7 @@ type Frame = {
   line: [string, string];
   caption: string;
   concept?: boolean;
+  credit?: string;
 };
 
 const frames: Frame[] = [
@@ -20,14 +21,16 @@ const frames: Frame[] = [
     alt: "Cowrie shells once used as money",
     focus: "50% 60%",
     line: ["For centuries,", "the cowrie was money."],
-    caption: "Cowrie shells · Gary Todd, CC0",
+    caption: "Cowrie shells",
+    credit: PHOTO_CREDIT[IMG.cowries],
   },
   {
     src: IMG.queen,
     alt: "A bronze statue of a Benin queen mother wearing coral bead necklaces and cuffs",
     focus: "50% 20%",
     line: ["Coral became the dress", "of the court."],
-    caption: "Queen Mother statue, Benin City · Alvy Bih, CC BY 4.0",
+    caption: "Queen Mother statue, Benin City",
+    credit: PHOTO_CREDIT[IMG.queen],
   },
   {
     src: IMG.poster,
@@ -40,7 +43,7 @@ const frames: Frame[] = [
 ];
 
 /**
- * Chapter 3: a pinned scene. As the visitor scrolls, three frames cross-fade and drift, each with
+ * The court: a pinned scene. As the visitor scrolls, three frames cross-fade and drift, each with
  * its own line, while a hand-drawn sun glyph turns over them (after the glyph film reference).
  */
 export function Court() {
@@ -55,7 +58,7 @@ export function Court() {
         ))}
         <div className="vignette absolute inset-0" />
         <Glyph progress={scrollYProgress} />
-        <Slates tl="03 · The court" />
+        <Slates tl={slate("court")} />
         <h2 id="court-title" className="sr-only">
           Cowrie and coral in the history of Benin
         </h2>
@@ -95,6 +98,7 @@ function CourtFrame({ frame, index, progress }: { frame: Frame; index: number; p
         loading="lazy"
       />
       {frame.concept && <ConceptLabel className="right-5 bottom-14 sm:right-[4vw] sm:bottom-16" />}
+      {frame.credit && <PhotoCredit credit={frame.credit} className="right-5 bottom-14 sm:right-[4vw] sm:bottom-16" />}
       <span className="absolute bottom-5 left-5 z-20 text-[11px] uppercase tracking-[0.22em] text-cream/70 sm:bottom-7 sm:left-[4vw] sm:text-xs">
         {frame.caption}
       </span>

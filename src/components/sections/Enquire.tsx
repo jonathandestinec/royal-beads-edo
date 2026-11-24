@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/config/site";
-import { steps } from "@/data/content";
+import { slate, steps } from "@/data/content";
 import { Backdrop, Slates, WriteOn, useSceneProgress } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
@@ -11,8 +11,8 @@ import { EnquireButton } from "@/components/ui/EnquireButton";
 const EASE = [0.45, 0.05, 0.3, 1] as const;
 
 /**
- * Chapter 8: your day. The end of the story, where the visitor enquires. A full-screen wedding
- * frame, the three steps of a custom order, visit details, and the main Enquire button with the
+ * Your day. The end of the story, where the visitor enquires. A full-screen wedding
+ * frame, the five steps of a custom order, visit details, and the main Enquire button with the
  * scribble drawing a closing line under it.
  */
 export function Enquire() {
@@ -34,7 +34,7 @@ export function Enquire() {
         progress={progress}
         grade="brightness(0.5)"
       />
-      <Slates tl="08 · Your day" />
+      <Slates tl={slate("enquire")} />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col items-center gap-10 px-5 text-center sm:px-[4vw]">
         <CowrieMark variant="pattern" size={64} color="#e6d2b0" patternColor="#5a3826" />
@@ -42,15 +42,23 @@ export function Enquire() {
           <WriteOn lines={["Tell us about", "your day."]} />
         </h2>
 
-        <RevealGroup className="grid w-full gap-3 text-left md:grid-cols-3">
-          {steps.map((s, i) => (
-            <RevealItem key={s.title} className="notch flex flex-col gap-2 bg-night/70 p-6 backdrop-blur-sm">
-              <span className="font-formal text-3xl leading-none text-gold-soft">{i + 1}</span>
-              <h3 className="m-0 font-display soft text-xl font-semibold">{s.title}</h3>
-              <p className="m-0 text-[15px] leading-relaxed text-sand">{s.body}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <div className="flex w-full flex-col gap-4">
+          <h3 className="m-0 text-[11px] font-medium uppercase tracking-[0.22em] text-cream/70 sm:text-xs">How custom orders work</h3>
+          <RevealGroup className="grid w-full gap-3 text-left sm:grid-cols-2 lg:grid-cols-5">
+            {steps.map((s, i) => (
+              <RevealItem
+                key={s.title}
+                className={`notch flex flex-row items-baseline gap-4 bg-night/70 p-5 backdrop-blur-sm sm:flex-col sm:gap-2 sm:p-6 ${i === steps.length - 1 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+              >
+                <span className="font-formal text-3xl leading-none text-gold-soft">{i + 1}</span>
+                <span className="flex flex-col gap-1.5">
+                  <span className="font-display soft text-xl leading-tight font-semibold">{s.title}</span>
+                  <span className="text-[15px] leading-relaxed text-sand">{s.body}</span>
+                </span>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
 
         <div className="flex flex-col items-center gap-2">
           <EnquireButton className="!h-14 !px-9 text-[17px]" message="Hello, I'd like to enquire about a set for my event.">

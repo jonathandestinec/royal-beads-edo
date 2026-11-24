@@ -1,9 +1,10 @@
-import { Header, Hero, Sea, Court, Hands, Occasions, TryOnTeaser, CoralCare, Enquire, Footer } from "@/components/sections";
+import { Header, Hero, Opening, Sea, Court, Hands, Occasions, TryOnTeaser, CoralCare, Gallery, Enquire, Footer } from "@/components/sections";
 import { ChapterRail } from "@/components/film/ChapterRail";
 
 /**
- * The site is told as one story in eight chapters, ending at the enquiry:
- * Taoué → the sea → the court → the hands → occasions → try it on → real coral → your day.
+ * The site is told as one story in ten chapters, ending at the enquiry. The AI hero comes first:
+ * Taoué → the cowrie → the sea → the court → the hands → occasions → try it on → real coral →
+ * gallery → your day.
  */
 export default function Home() {
   return (
@@ -13,12 +14,14 @@ export default function Home() {
       <ChapterRail />
       <main>
         <Hero />
+        <Opening />
         <Sea />
         <Court />
         <Hands />
         <Occasions />
         <TryOnTeaser />
         <CoralCare />
+        <Gallery />
         <Enquire />
       </main>
       <Footer />

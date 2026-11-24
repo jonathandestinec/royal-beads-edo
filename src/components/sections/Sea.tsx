@@ -3,10 +3,11 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Backdrop, Slates, WriteOn, useSceneProgress } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
+import { slate } from "@/data/content";
 
 const EASE = [0.45, 0.05, 0.3, 1] as const;
 
-/** Chapter 2: the coral begins in the sea. A full-screen film clip with one line of text. */
+/** The sea: the coral begins in the sea. A full-screen film clip with one line of text. */
 export function Sea() {
   const { ref, progress } = useSceneProgress();
   const reduce = useReducedMotion();
@@ -19,7 +20,7 @@ export function Sea() {
       className="relative flex min-h-[100svh] scroll-mt-0 items-center justify-center overflow-hidden px-5 text-center"
     >
       <Backdrop src="/video/sea.mp4" poster="/video/sea-poster.jpg" progress={progress} grade="brightness(0.72) contrast(1.05)" />
-      <Slates tl="02 · The sea" />
+      <Slates tl={slate("sea")} />
 
       {/* A hand-drawn wave that writes itself across the screen, with the constant wobble. */}
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-[62%] h-20 w-full" aria-hidden="true">

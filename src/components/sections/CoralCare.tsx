@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { coralChecks } from "@/data/content";
+import { coralChecks, slate } from "@/data/content";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 import { CowriePattern } from "@/components/brand/CowriePattern";
 import { Slates } from "@/components/film/Film";
@@ -9,14 +9,14 @@ import { Slates } from "@/components/film/Film";
 const tilts = [-3, 2, -1.5, 2.5];
 
 /**
- * Chapter 7: real coral, cared for. The four authenticity checks are dealt onto a rust cowrie
+ * Real coral, cared for. The four authenticity checks are dealt onto a rust cowrie
  * cloth like letters (after the Siloha note cards); care tips sit underneath.
  */
 export function CoralCare() {
   return (
     <section id="care" aria-labelledby="care-title" className="relative overflow-hidden bg-rust py-24 sm:py-32">
       <CowriePattern bg="#a5502f" fg="#994729" tile={72} />
-      <Slates tl="07 · Real coral" />
+      <Slates tl={slate("care")} />
       <div className="relative mx-auto flex max-w-[1296px] flex-col gap-12 px-5 sm:px-[4vw]">
         <div className="grid items-end gap-6 text-paper md:grid-cols-2 md:gap-12">
           <h2 id="care-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">

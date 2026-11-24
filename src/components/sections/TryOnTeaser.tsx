@@ -2,13 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { IMG } from "@/data/content";
+import { IMG, slate } from "@/data/content";
 import { COWRIE_SMALL_PATH } from "@/components/brand/CowrieMark";
 import { ConceptLabel, Slates } from "@/components/film/Film";
 import { EnquireButton } from "@/components/ui/EnquireButton";
 
 /**
- * Chapter 6: see it on you. The client's real problem was a set that looked different in person
+ * Try it on: see it on you. The client's real problem was a set that looked different in person
  * than in a photo; this scene introduces the virtual try-on. The photo reveals itself through
  * a cowrie-shaped window that opens as you scroll.
  */
@@ -26,7 +26,7 @@ export function TryOnTeaser() {
 
   return (
     <section ref={ref} id="try-on" aria-labelledby="try-title" className="relative overflow-hidden bg-night py-24 sm:py-32">
-      <Slates tl="06 · Try it on" />
+      <Slates tl={slate("try-on")} />
       <div className="mx-auto grid max-w-[1296px] items-center gap-12 px-5 sm:px-[4vw] md:grid-cols-2">
         <motion.div
           style={{ scale: maskScale, WebkitMaskImage: COWRIE_MASK, maskImage: COWRIE_MASK, WebkitMaskSize: "100% 100%", maskSize: "100% 100%" }}
@@ -34,10 +34,10 @@ export function TryOnTeaser() {
         >
           <div className="absolute inset-0">
             <motion.img
-              src={IMG.heroPortrait}
-              alt="A woman with closed eyes wearing a chunky necklace of red-orange coral beads"
+              src={IMG.poster}
+              alt="A poster of a woman in a tall coral bead crown and layered coral collar"
               style={{ scale: imgScale }}
-              className="h-full w-full object-cover object-[28%_45%] [filter:sepia(0.1)_saturate(0.95)_brightness(0.95)]"
+              className="h-full w-full object-cover object-[50%_35%] [filter:sepia(0.1)_saturate(0.95)_brightness(0.95)]"
               loading="lazy"
             />
           </div>
