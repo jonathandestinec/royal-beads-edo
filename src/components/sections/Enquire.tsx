@@ -1,38 +1,90 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/config/site";
+import { IMG, steps } from "@/data/content";
+import { Backdrop, Slates, WriteOn, useSceneProgress } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
-import { CowriePattern } from "@/components/brand/CowriePattern";
-import { Reveal } from "@/components/motion/Reveal";
+import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { EnquireButton } from "@/components/ui/EnquireButton";
 
-/** Visit and enquire, styled after the Siloha note card on its envelope (reference 12). */
+const EASE = [0.45, 0.05, 0.3, 1] as const;
+
+/**
+ * Chapter 8: your day. The end of the story, where the visitor enquires. A full-screen wedding
+ * frame, the three steps of a custom order, visit details, and the main Enquire button with the
+ * scribble drawing a closing line under it.
+ */
 export function Enquire() {
+  const { ref, progress } = useSceneProgress();
+  const reduce = useReducedMotion();
   const { area, city, state, country } = site.location;
+
   return (
-    <section id="enquire" aria-labelledby="enquire-title" className="relative scroll-mt-20 overflow-hidden bg-rust py-24 sm:py-32">
-      <CowriePattern bg="#a5502f" fg="#994729" tile={72} />
-      <div className="relative mx-auto grid max-w-[1296px] items-center gap-12 px-5 sm:px-[4vw] md:grid-cols-2">
-        <Reveal className="flex flex-col gap-5 text-paper">
-          <h2 id="enquire-title" className="m-0 font-display soft text-[clamp(36px,4.4vw,64px)] leading-none font-semibold tracking-[-0.02em]">
-            Visit us or send an enquiry
-          </h2>
-          <p className="m-0 text-lg leading-relaxed">
-            {area}, {city}, {state}, {country}. Open {site.hours}.
-          </p>
-          <p className="m-0 text-lg leading-relaxed">
-            Tell us the occasion, your date and the look you want, and we will reply with options and price ranges. Ready
-            dates are confirmed by our workshop.
-          </p>
-          <EnquireButton variant="brown" className="self-start !h-14 !px-8 text-[17px]" message="Hello, I'd like to enquire about a set.">
-            Open the Enquire form
+    <section
+      ref={ref}
+      id="enquire"
+      aria-labelledby="enquire-title"
+      className="relative flex min-h-[100svh] items-center overflow-hidden py-28"
+    >
+      <Backdrop
+        src={IMG.wedding}
+        alt="A bride in a coral crown and layered coral collar and a groom in a coral cap, foreheads touching"
+        focus="50% 30%"
+        progress={progress}
+        grade="sepia(0.15) saturate(0.95) brightness(0.45)"
+        concept
+      />
+      <Slates tl="Chapter 08 · Your day" tr={`${area} · ${city}`} bl={`Open ${site.hours}`} />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col items-center gap-10 px-5 text-center sm:px-[4vw]">
+        <CowrieMark variant="pattern" size={64} color="#e6d2b0" patternColor="#5a3826" />
+        <h2 id="enquire-title" className="m-0 font-display soft text-[clamp(44px,6.6vw,100px)] leading-[0.96] font-semibold tracking-[-0.02em]">
+          <WriteOn lines={["Tell us about", "your day."]} />
+        </h2>
+
+        <RevealGroup className="grid w-full gap-3 text-left md:grid-cols-3">
+          {steps.map((s, i) => (
+            <RevealItem key={s.title} className="notch flex flex-col gap-2 bg-night/70 p-6 backdrop-blur-sm">
+              <span className="font-formal text-3xl leading-none text-gold-soft">{i + 1}</span>
+              <h3 className="m-0 font-display soft text-xl font-semibold">{s.title}</h3>
+              <p className="m-0 text-[15px] leading-relaxed text-sand">{s.body}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+
+        <div className="flex flex-col items-center gap-2">
+          <EnquireButton className="!h-14 !px-9 text-[17px]" message="Hello, I'd like to enquire about a set for my event.">
+            Enquire about a set
           </EnquireButton>
-        </Reveal>
-        <Reveal delay={0.15} className="relative h-[380px] sm:h-[420px]">
-          <div className="absolute inset-x-[4%] top-[34%] bottom-0 rounded-md bg-envelope sm:left-[8%]" />
-          <div className="absolute top-[6%] right-[14%] left-0 flex h-[260px] rotate-[-3deg] flex-col items-center justify-center gap-6 bg-paper p-6 text-center text-rust shadow-[0_18px_40px_rgba(40,12,8,0.3)] transition-transform duration-700 ease-silk hover:rotate-0 sm:h-[280px]">
-            <p className="m-0 font-display soft text-[34px] leading-tight font-medium sm:text-[38px]">Strung with care, for you</p>
-            <CowrieMark variant="full" size={40} />
-          </div>
-        </Reveal>
+          <svg viewBox="0 0 300 30" className="h-6 w-[260px]" aria-hidden="true">
+            <defs>
+              <filter id="end-boil">
+                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves={2} seed={5} result="n">
+                  {!reduce && <animate attributeName="seed" values="5;1;8;3" dur="0.55s" calcMode="discrete" repeatCount="indefinite" />}
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale={2.5} />
+              </filter>
+            </defs>
+            <motion.path
+              d="M10 15 C 60 4, 110 26, 150 15 S 240 4, 290 15"
+              fill="none"
+              stroke="#fff8ee"
+              strokeWidth={2}
+              strokeLinecap="round"
+              filter="url(#end-boil)"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.8, ease: EASE, delay: 0.6 }}
+            />
+          </svg>
+        </div>
+
+        <p className="m-0 max-w-[40em] text-base leading-relaxed text-sand">
+          Visit us at the {area}, {city}, {state}, {country}, {site.hours}. We reply with options and price ranges; ready
+          dates are always confirmed by our workshop.
+        </p>
       </div>
     </section>
   );

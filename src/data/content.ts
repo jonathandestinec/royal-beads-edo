@@ -1,8 +1,35 @@
 /**
- * Site copy and content. Sections stay presentational; edit the words here.
- * Photos in /images/placeholder are licensed stand-ins (credits in docs/image-credits.md)
- * until the shop's own photos and the labelled AI concept images arrive.
+ * Site copy and content. Scenes stay presentational; edit the words here.
+ *
+ * Images:
+ * - /images/concept: AI concept images (prompts in docs/ai-image-prompts). Always shown with a "Concept image" label.
+ * - /images/placeholder: licensed photos from Wikimedia Commons (credits in docs/image-credits.md).
+ * - /video: stock footage from Pexels, graded for the site (credits in docs/image-credits.md).
  */
+
+export const IMG = {
+  heroPortrait: "/images/concept/1-hero-coral-necklace-portrait.jpg",
+  poster: "/images/concept/2-brand-poster-coral-crown.jpg",
+  wedding: "/images/concept/3-service-wedding-sets.jpg",
+  bracelets: "/images/concept/4-service-coral-bracelets.jpg",
+  workshop: "/images/concept/5-service-custom-workshop.jpg",
+  bride: "/images/placeholder/bride.jpg",
+  couple: "/images/placeholder/couple.jpg",
+  queen: "/images/placeholder/queen.jpg",
+  cowries: "/images/placeholder/cowries.jpg",
+} as const;
+
+/** The chapters of the story, in scroll order. Used by the side rail. */
+export const chapters = [
+  { id: "top", label: "Taoué" },
+  { id: "sea", label: "The sea" },
+  { id: "court", label: "The court" },
+  { id: "hands", label: "The hands" },
+  { id: "occasions", label: "Occasions" },
+  { id: "try-on", label: "Try it on" },
+  { id: "care", label: "Real coral" },
+  { id: "enquire", label: "Your day" },
+] as const;
 
 export type Occasion = {
   title: string;
@@ -10,6 +37,7 @@ export type Occasion = {
   image: string;
   alt: string;
   focus: string;
+  concept?: boolean;
   /** Price range shown on the card. Ranges only: the final price is agreed per set. */
   price: string;
 };
@@ -19,43 +47,36 @@ export const occasions: Occasion[] = [
     title: "Weddings",
     line: "Bride and groom regalia, our most requested sets",
     price: "Buy from ₦450,000 · rent from ₦80,000",
-    image: "/images/placeholder/couple.jpg",
-    alt: "A bride and groom in coral bead crowns and necklaces",
-    focus: "50% 15%",
+    image: IMG.wedding,
+    alt: "A bride in a coral crown and layered coral collar with her groom in a coral cap and necklace",
+    focus: "50% 30%",
+    concept: true,
   },
   {
     title: "Chieftaincy",
     line: "Beads for titles and ceremonies",
     price: "From ₦300,000",
-    image: "/images/placeholder/queen.jpg",
-    alt: "A statue wearing layered coral necklaces and cuffs",
+    image: IMG.queen,
+    alt: "A bronze statue wearing layered coral necklaces and cuffs",
     focus: "50% 15%",
   },
   {
     title: "Festivals",
     line: "Igue and other cultural days",
     price: "From ₦60,000",
-    image: "/images/placeholder/bride.jpg",
-    alt: "A coral bead crown up close",
-    focus: "50% 4%",
+    image: IMG.bride,
+    alt: "A woman in a coral bead crown and coral necklaces",
+    focus: "50% 8%",
   },
   {
     title: "Celebrations",
     line: "Birthdays, naming days and family occasions",
     price: "From ₦40,000",
-    image: "/images/placeholder/bride.jpg",
-    alt: "Layered coral necklaces and cuffs",
-    focus: "50% 72%",
+    image: IMG.bracelets,
+    alt: "A hand wearing three stacked coral bead bracelets",
+    focus: "40% 40%",
+    concept: true,
   },
-];
-
-export const marquee = [
-  "Bridal crowns",
-  "Groom sets",
-  "Chieftaincy beads",
-  "Festival wear",
-  "Coral cuffs",
-  "Traditional attire",
 ];
 
 export const steps = [
@@ -73,19 +94,29 @@ export const steps = [
   },
 ];
 
+export const coralChecks = [
+  {
+    title: "Look closely",
+    body: "Natural coral shows fine growth lines, tiny pits and gentle changes of colour from bead to bead. Plastic and glass look perfectly even.",
+  },
+  {
+    title: "Feel the weight",
+    body: "Coral is dense, so it feels cool and heavier in the hand than plastic beads of the same size.",
+  },
+  {
+    title: "Check the holes",
+    body: "If the colour is darker inside the drill holes or in small cracks, the bead has likely been dyed.",
+  },
+  {
+    title: "Skip the home tests",
+    body: "Acid, flame and scratch tests damage real coral. For a valuable set, ask a gemologist, or ask us: every Taoué set comes with a note on what it is made from.",
+  },
+];
+
 export const careTips = [
-  {
-    title: "Store it soft",
-    body: "Wrap each strand in a soft cloth and keep it apart from harder jewellery that can scratch it.",
-  },
-  {
-    title: "Last on, first off",
-    body: "Coral is porous. Put it on after perfume, lotion and hairspray, and take it off before washing or swimming.",
-  },
-  {
-    title: "We ship abroad",
-    body: "Many of our customers are in the UK and US. Sets travel packed in cloth and boxed, with tracking.",
-  },
+  { title: "Store it soft", body: "Wrap each strand in cloth, apart from harder jewellery." },
+  { title: "Last on, first off", body: "Put coral on after perfume and lotion; take it off before washing." },
+  { title: "We ship abroad", body: "Sets travel to the UK, US and beyond, packed in cloth, boxed and tracked." },
 ];
 
 export const storyBeats = [

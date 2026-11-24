@@ -16,16 +16,16 @@ export function Footer() {
             {site.brand} by {site.name}. Coral beads and traditional attire, {site.location.area}, {site.location.city}.
           </p>
           <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
+            <a href="#sea" className="text-sand hover:text-cream">Our story</a>
             <a href="#occasions" className="text-sand hover:text-cream">Occasions</a>
             <a href="#try-on" className="text-sand hover:text-cream">Try on</a>
-            <a href="#custom" className="text-sand hover:text-cream">Custom orders</a>
-            <a href="#story" className="text-sand hover:text-cream">Our story</a>
-            <a href="#care" className="text-sand hover:text-cream">Coral care</a>
+            <a href="#care" className="text-sand hover:text-cream">Real coral</a>
             <a href="#enquire" className="text-sand hover:text-cream">Enquire</a>
           </nav>
           <p className="m-0 text-[13px]">
+            Images marked &ldquo;Concept image&rdquo; are AI-generated concepts, not real customers or finished work.
             Photography: Sasu Photography Studio (CC BY-SA 4.0), Alvy Bih (CC BY 4.0) and Gary Todd (CC0), via Wikimedia
-            Commons.
+            Commons. Coral reef footage: Jun Ho Lee, via Pexels.
           </p>
         </div>
       </div>

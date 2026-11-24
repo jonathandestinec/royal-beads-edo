@@ -10,3 +10,5 @@ The site currently uses these licensed photographs from Wikimedia Commons. They 
 | `public/images/placeholder/cowries.jpg` | Cowrie Shells Used as Currency | Gary Todd | CC0 | https://commons.wikimedia.org/wiki/File:Cowrie_Shells_Used_as_Currency.jpg |
 
 Photos are resized, cropped and colour-graded on the page. The credit line in the site footer satisfies the attribution terms.
+
+| `public/video/sea.mp4` | Close-Up of Coral Reefs Underwater (graded, cropped, 9 s) | Jun Ho Lee | Pexels licence | https://www.pexels.com/video/close-up-of-coral-reefs-underwater-34127729/ |

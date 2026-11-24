@@ -1,46 +1,60 @@
-import { careTips } from "@/data/content";
+"use client";
+
+import { motion } from "framer-motion";
+import { careTips, coralChecks } from "@/data/content";
 import { CowrieMark } from "@/components/brand/CowrieMark";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { CowriePattern } from "@/components/brand/CowriePattern";
+import { Slates } from "@/components/film/Film";
 
-const tones = ["bg-saoky text-cream", "bg-rust text-paper", "bg-sand text-espresso"];
+const tilts = [-3, 2, -1.5, 2.5];
 
-/** A Saoky-style bento of care and authenticity tips (reference 8). */
+/**
+ * Chapter 7: real coral, cared for. The four authenticity checks are dealt onto a rust cowrie
+ * cloth like letters (after the Siloha note cards); care tips sit underneath.
+ */
 export function CoralCare() {
   return (
-    <section id="care" aria-labelledby="care-title" className="scroll-mt-20 py-24 sm:py-32">
-      <div className="mx-auto flex max-w-[1296px] flex-col gap-10 px-5 sm:px-[4vw]">
-        <Reveal className="grid items-end gap-6 md:grid-cols-2 md:gap-12">
-          <h2 id="care-title" className="m-0 font-display soft text-[clamp(36px,4.4vw,64px)] leading-none font-semibold tracking-[-0.02em]">
-            Real coral, cared for
+    <section id="care" aria-labelledby="care-title" className="relative overflow-hidden bg-rust py-24 sm:py-32">
+      <CowriePattern bg="#a5502f" fg="#994729" tile={72} />
+      <Slates tl="Chapter 07 · Real coral" tr="A buyer's guide" />
+      <div className="relative mx-auto flex max-w-[1296px] flex-col gap-12 px-5 sm:px-[4vw]">
+        <div className="grid items-end gap-6 text-paper md:grid-cols-2 md:gap-12">
+          <h2 id="care-title" className="m-0 font-display soft text-[clamp(36px,4.6vw,68px)] leading-none font-semibold tracking-[-0.02em]">
+            Is it real coral?
           </h2>
-          <p className="m-0 text-lg leading-relaxed text-sand">
-            Many buyers worry about fake coral. Here is how to tell the real thing, and how to keep it beautiful for
+          <p className="m-0 text-lg leading-relaxed">
+            It is the question we hear most. Four checks that never harm a bead, and how to keep yours beautiful for
             years.
           </p>
-        </Reveal>
-        <RevealGroup className="grid auto-rows-[minmax(220px,auto)] gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <RevealItem className="flex flex-col justify-between gap-8 rounded-3xl bg-cream p-8 text-espresso sm:col-span-2 lg:row-span-2">
-            <CowrieMark variant="full" size={60} color="#4a3022" />
-            <div className="flex flex-col gap-3">
-              <h3 className="m-0 font-display soft text-[38px] leading-tight font-semibold">Is it real coral?</h3>
-              <ul className="m-0 flex list-none flex-col gap-2.5 p-0 text-[17px] leading-relaxed text-saoky">
-                <li><strong>Look closely.</strong> Natural coral shows fine growth lines, tiny pits and gentle changes of colour from bead to bead. Plastic and glass look perfectly even.</li>
-                <li><strong>Feel the weight.</strong> Coral is dense, so it feels cool and heavier in the hand than plastic beads of the same size.</li>
-                <li><strong>Check the holes.</strong> If the colour is darker inside the drill holes or in small cracks, the bead has likely been dyed.</li>
-                <li><strong>Skip the home tests.</strong> Acid, flame and scratch tests damage real coral. For a valuable set, ask a gemologist, or ask us: every Taoué set comes with a note on what it is made from.</li>
-              </ul>
-            </div>
-          </RevealItem>
-          <RevealItem className="overflow-hidden rounded-3xl bg-espresso">
-            <img src="/images/placeholder/cowries.jpg" alt="Cowrie shells once used as money" className="warm h-full min-h-[220px] w-full object-cover object-[50%_62%] transition-transform duration-[1200ms] ease-silk hover:scale-105" />
-          </RevealItem>
-          {careTips.map((t, i) => (
-            <RevealItem key={t.title} className={`flex flex-col justify-between gap-6 rounded-3xl p-7 transition-transform duration-500 ease-silk hover:-translate-y-1.5 ${tones[i]}`}>
-              <h3 className="m-0 font-display soft text-[26px] font-semibold">{t.title}</h3>
-              <p className="m-0 text-[15px] leading-relaxed opacity-90">{t.body}</p>
-            </RevealItem>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {coralChecks.map((c, i) => (
+            <motion.article
+              key={c.title}
+              initial={{ opacity: 0, y: 80, rotate: tilts[i] * 4 }}
+              whileInView={{ opacity: 1, y: 0, rotate: tilts[i] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1], delay: i * 0.12 }}
+              whileHover={{ rotate: 0, y: -6 }}
+              className="flex min-h-[300px] flex-col gap-4 bg-paper p-7 text-rust shadow-[0_18px_40px_rgba(40,12,8,0.3)]"
+            >
+              <span className="font-formal text-4xl leading-none">{i + 1}</span>
+              <h3 className="m-0 font-display soft text-[28px] leading-tight font-semibold">{c.title}</h3>
+              <p className="m-0 text-[15px] leading-relaxed text-saoky">{c.body}</p>
+            </motion.article>
           ))}
-        </RevealGroup>
+        </div>
+
+        <div className="notch grid gap-6 bg-envelope p-8 text-cream md:grid-cols-[auto_1fr_1fr_1fr] md:items-center">
+          <CowrieMark variant="line" size={44} color="#d8b977" />
+          {careTips.map((t) => (
+            <div key={t.title} className="flex flex-col gap-1">
+              <span className="font-display soft text-xl font-semibold">{t.title}</span>
+              <span className="text-[15px] leading-relaxed text-sand">{t.body}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -7,11 +7,11 @@ import { Wordmark } from "@/components/brand/Wordmark";
 import { EnquireButton } from "@/components/ui/EnquireButton";
 
 const links = [
+  { href: "#sea", label: "Our story" },
   { href: "#occasions", label: "Occasions" },
   { href: "#try-on", label: "Try on" },
-  { href: "#custom", label: "Custom orders" },
-  { href: "#story", label: "Our story" },
-  { href: "#care", label: "Coral care" },
+  { href: "#care", label: "Real coral" },
+  { href: "#enquire", label: "Custom orders" },
 ];
 
 /** Transparent over the hero, then a solid brown bar once the visitor scrolls. */

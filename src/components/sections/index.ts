@@ -1,10 +1,10 @@
 export { Header } from "./Header";
 export { Hero } from "./Hero";
-export { Marquee } from "./Marquee";
+export { Sea } from "./Sea";
+export { Court } from "./Court";
+export { Hands } from "./Hands";
 export { Occasions } from "./Occasions";
 export { TryOnTeaser } from "./TryOnTeaser";
-export { CustomOrder } from "./CustomOrder";
-export { CultureStory } from "./CultureStory";
 export { CoralCare } from "./CoralCare";
 export { Enquire } from "./Enquire";
 export { Footer } from "./Footer";

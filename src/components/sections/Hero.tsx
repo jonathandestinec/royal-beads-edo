@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { site } from "@/config/site";
-import { storyBeats } from "@/data/content";
+import { IMG, storyBeats } from "@/data/content";
+import { ConceptLabel, Slates } from "@/components/film/Film";
 import { EnquireButton, pill, pillStyles } from "@/components/ui/EnquireButton";
 import { MusicToggle } from "@/components/ui/MusicToggle";
 import { Scribble } from "./Scribble";
@@ -51,11 +52,13 @@ export function Hero() {
       className="relative flex min-h-[760px] flex-col items-center overflow-hidden px-5 pt-[104px] pb-14 sm:min-h-[100svh] sm:px-[4vw]"
     >
       <motion.img
-        src="/images/placeholder/bride.jpg"
-        alt="A bride in a coral bead crown, layered coral necklaces and coral cuffs"
+        src={IMG.heroPortrait}
+        alt="A woman with closed eyes wearing a chunky necklace of red-orange coral beads and a coral earring"
         style={{ y: imgY, scale: imgScale }}
-        className="absolute inset-0 h-full w-full object-cover object-[50%_24%] [filter:sepia(0.35)_saturate(0.85)_brightness(0.5)]"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_30%] [filter:sepia(0.2)_saturate(0.9)_brightness(0.55)]"
       />
+      <Slates tl="Chapter 01 · Taoué" tr="Oba Market · Benin City" bl="Coral beads & traditional attire" br="Est. 2026" />
+      <ConceptLabel className="right-5 bottom-14 sm:right-[4vw] sm:bottom-16" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_45%,rgba(28,20,17,0.55)_0%,rgba(28,20,17,0.2)_70%),linear-gradient(to_top,rgba(28,20,17,0.9)_0%,rgba(28,20,17,0.1)_45%,rgba(28,20,17,0.5)_100%)]" />
 
       {/* Loading veil: covers the whole screen while the story draws, then lifts. */}
