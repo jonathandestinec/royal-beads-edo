@@ -4,7 +4,7 @@ Where the project is, what's done and what's next. Update this file in the same 
 
 Deadlines: Wed 25 Nov (images, website, chatbot) · Fri 27 Nov (publish, test, demo day).
 
-**Current phase: 2. Fix the audit gaps** (started 24 Nov; every item is done on `fix/audit-gaps`, waiting to merge to `main`)
+**Current phase: 3. Virtual try-on** (Phase 2 done and live 24 Nov)
 
 ## Phase 1. Scored basics (done 24 Nov)
 
@@ -15,7 +15,7 @@ Deadlines: Wed 25 Nov (images, website, chatbot) · Fri 27 Nov (publish, test, d
 - [x] Botpress chatbot embedded; 5 tests run and screenshotted (1 refusal)
 - [x] Group n8n workflow on n8n Cloud, node 1 "Enquiry form (Destine)" published
 
-## Phase 2. Fix the audit gaps (in review)
+## Phase 2. Fix the audit gaps (done 24 Nov)
 
 Audit of 24 Nov against the Student Brief.
 
