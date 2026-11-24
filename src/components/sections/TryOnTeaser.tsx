@@ -5,7 +5,8 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { IMG, slate } from "@/data/content";
 import { COWRIE_SMALL_PATH } from "@/components/brand/CowrieMark";
 import { ConceptLabel, Slates } from "@/components/film/Film";
-import { EnquireButton } from "@/components/ui/EnquireButton";
+import Link from "next/link";
+import { pill, pillStyles } from "@/components/ui/EnquireButton";
 
 /**
  * Try it on: see it on you. The client's real problem was a set that looked different in person
@@ -56,9 +57,9 @@ export function TryOnTeaser() {
           <p className="m-0 max-w-[26em] text-lg leading-relaxed text-sand">
             Try a crown or necklace on with your phone camera. Nothing leaves your phone.
           </p>
-          <EnquireButton variant="cream" message="Hello, I'd like to try on a coral set.">
+          <Link href="/try-on" className={`${pill} ${pillStyles.cream}`}>
             Try it on
-          </EnquireButton>
+          </Link>
         </motion.div>
       </div>
     </section>
