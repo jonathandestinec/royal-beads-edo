@@ -131,12 +131,12 @@ export function Dashboard() {
           )}
 
           {/* Counts */}
-          <section aria-label="Counts" className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+          <section aria-label="Counts" className="mt-6 grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-4">
             <button
               type="button"
               onClick={() => setLabel("all")}
               aria-pressed={label === "all"}
-              className={`notch col-span-2 bg-espresso p-4 text-left transition md:col-span-1 ${label === "all" ? "ring-2 ring-gold" : "hover:bg-saoky"}`}
+              className={`notch col-span-3 bg-espresso p-4 text-left transition md:col-span-1 ${label === "all" ? "ring-2 ring-gold" : "hover:bg-saoky"}`}
             >
               <span className="block text-[12px] tracking-[0.14em] text-muted uppercase">All enquiries</span>
               <span className="mt-1 block font-formal text-[44px] leading-none text-paper tabular-nums">
@@ -155,16 +155,16 @@ export function Dashboard() {
                 type="button"
                 onClick={() => setLabel(label === l ? "all" : l)}
                 aria-pressed={label === l}
-                className={`notch bg-espresso p-4 text-left transition ${label === l ? "ring-2 ring-gold" : "hover:bg-saoky"}`}
+                className={`notch min-w-0 bg-espresso p-3 text-left transition sm:p-4 ${label === l ? "ring-2 ring-gold" : "hover:bg-saoky"}`}
               >
                 <span className="flex items-center gap-2 text-[12px] tracking-[0.14em] text-muted uppercase">
                   <span className={`size-2 rounded-full ${labelStyle[l].dot}`} />
                   {l}
                 </span>
-                <span className="mt-1 block font-formal text-[44px] leading-none text-paper tabular-nums">
+                <span className="mt-1 block font-formal text-[36px] sm:text-[44px] leading-none text-paper tabular-nums">
                   {status.kind === "loading" ? "–" : counts.byLabel[l]}
                 </span>
-                <span className="mt-1 block text-[12px] text-taupe">{labelStyle[l].note}</span>
+                <span className="mt-1 hidden text-[12px] text-taupe sm:block">{labelStyle[l].note}</span>
               </button>
             ))}
           </section>
