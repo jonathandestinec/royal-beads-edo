@@ -45,6 +45,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* While the loading intro plays, the page does not scroll. */
+html[data-intro="on"] {
+  overflow: hidden;
+}
+
 body {
   background: var(--color-night);
   color: var(--color-cream);

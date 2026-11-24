@@ -16,16 +16,16 @@ const zig = (x: number, dir: 1 | -1) =>
   `M${x} 80 ` + Array.from({ length: 20 }, (_, i) => `l${(i % 2 === 0 ? 22 : -22) * dir} 18`).join(" ");
 
 const lines: { d: string; delay: number; duration: number }[] = [
-  { d: "M40 40 L360 40 L360 470 L40 470 Z", delay: 0.2, duration: 2 },
+  { d: "M40 40 L360 40 L360 470 L40 470 Z", delay: 0.2, duration: 1.8 },
   { d: `${fringeTop} ${fringeBottom}`, delay: 0.8, duration: 1.6 },
-  { d: `${zig(80, 1)} ${zig(320, -1)}`, delay: 1.2, duration: 2.2 },
+  { d: `${zig(80, 1)} ${zig(320, -1)}`, delay: 1.1, duration: 2 },
   {
     d: "M200 90 C232 90 252 126 252 170 C252 210 232 234 200 234 C168 234 148 210 148 170 C148 126 168 90 200 90 Z M199 94 C192 126 188 170 196 194 C198 206 202 214 206 220 M192 126 l6 2 M190 142 l7 2 M189 158 l7 2 M189 174 l8 2 M191 190 l8 2",
-    delay: 1.6,
-    duration: 2,
+    delay: 1.5,
+    duration: 1.8,
   },
-  { d: "M120 270 C140 338 170 368 200 368 C230 368 260 338 280 270", delay: 3.6, duration: 1.4 },
-  { d: "M200 390 L200 440 M170 420 C180 406 192 400 200 400 C208 400 220 406 230 420 M156 452 L244 452", delay: 7.2, duration: 1.4 },
+  { d: "M120 270 C140 338 170 368 200 368 C230 368 260 338 280 270", delay: 2.6, duration: 1.2 },
+  { d: "M200 390 L200 440 M170 420 C180 406 192 400 200 400 C208 400 220 406 230 420 M156 452 L244 452", delay: 4.3, duration: 1.1 },
 ];
 
 const beads: [number, number, number][] = [
@@ -75,8 +75,8 @@ export function Scribble({ className = "" }: { className?: string }) {
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
             transition={{
-              pathLength: { duration: 0.45, delay: 4 + i * 0.15, ease: EASE },
-              opacity: { duration: 0.15, delay: 4 + i * 0.15 },
+              pathLength: { duration: 0.45, delay: 3 + i * 0.15, ease: EASE },
+              opacity: { duration: 0.15, delay: 3 + i * 0.15 },
             }}
           />
         ))}
