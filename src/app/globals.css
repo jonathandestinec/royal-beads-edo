@@ -102,3 +102,8 @@ body {
     animation: none;
   }
 }
+
+/* Chat bubble waits until the opening intro has played. */
+html[data-intro="on"] .bpChatContainer {
+  display: none;
+}

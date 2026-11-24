@@ -3,6 +3,7 @@ import { Fraunces, Gloock, Outfit } from "next/font/google";
 import "./globals.css";
 import { site } from "@/config/site";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { ChatWidget } from "@/components/ui/ChatWidget";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full">
         <MotionProvider>{children}</MotionProvider>
+        <ChatWidget />
       </body>
     </html>
   );

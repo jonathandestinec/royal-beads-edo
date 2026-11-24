@@ -60,3 +60,10 @@ export function buildEnquireUrl(message?: string): string {
   if (message) url.searchParams.set(ENQUIRE_MESSAGE_FIELD, message);
   return url.toString();
 }
+
+/**
+ * Taoué Assistant chatbot (Botpress webchat). Both scripts come from the Botpress embed code.
+ * These are public embed URLs, not secrets. Empty values hide the chat bubble.
+ */
+export const CHAT_INJECT_SRC = "https://cdn.botpress.cloud/webchat/v5.0/inject.js";
+export const CHAT_CONFIG_SRC = "https://files.bpcontent.cloud/2026/11/24/14/20261124142712-I5MLIQE7.js";
