@@ -23,9 +23,29 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
+const title = `${site.brand} by ${site.name} | Coral beads & traditional attire, Benin City`;
+
+/**
+ * Site-wide metadata. The share image is src/app/opengraph-image.tsx, which Next adds to every
+ * page as og:image and twitter:image; pages override the title and description only.
+ */
 export const metadata: Metadata = {
-  title: `${site.brand} by ${site.name} | Coral beads & traditional attire, Benin City`,
+  metadataBase: new URL("https://royal-beads-edo.vercel.app"),
+  title,
   description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: `${site.brand} by ${site.name}`,
+    locale: "en_NG",
+    url: "/",
+    title,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: site.description,
+  },
 };
 
 export const viewport: Viewport = {

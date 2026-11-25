@@ -41,6 +41,17 @@ export const site = {
 } as const;
 
 /**
+ * The share image (src/app/opengraph-image.tsx). Pages that set their own Open Graph or Twitter
+ * metadata list it again, because a page's openGraph replaces the site-wide one.
+ */
+export const SHARE_IMAGE = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "Taoué by Royal Beads Edo: Coral beads and traditional attire from Benin City",
+};
+
+/**
  * Optional background music. Put a licence-free track in public/audio/ and set its path here
  * (for example "/audio/afro-jazz.mp3") to show the play button. Empty hides it.
  */
