@@ -7,7 +7,7 @@ The page at `/try-on`. In-browser coral necklace and crown try-on, built on `@me
 - `tracking.ts` places the necklace under the chin and the crown on the hairline, sized by the face width and turned with head tilt, smoothed from frame to frame. Tune `NECK_DROP` and `CROWN_LIFT` there, and the sizes (`faces`) in `sprites.ts`.
 - `sets.ts` lists the sets in the picker and writes the Enquire message. No prices or dates (rules C1, C3).
 - Style picker, "Take photo" (shares on phones, downloads elsewhere), photo upload when there's no camera.
-- "Love this look? Enquire" opens the group n8n form with `Business=Royal Beads Edo` and the chosen set in `Message`, via `buildEnquireUrl()` in `src/config/site.ts` (rule R3).
+- "Love this look? Enquire" opens the Royal Beads Edo n8n form with the chosen set in `Message`, via `buildEnquireUrl()` in `src/config/site.ts` (rule R3).
 
 To use real bead photos later, replace a sprite with a transparent PNG drawn at the same size and anchor (`NECK` and `CROWN` in `sprites.ts`).
 

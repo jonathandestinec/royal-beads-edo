@@ -4,16 +4,16 @@ Where the project is, what's done and what's next. Update this file in the same 
 
 Deadlines: Wed 25 Nov (images, website, chatbot) · Fri 27 Nov (publish, test, demo day).
 
-**Current phase: 4. Group work and demo** (Phases 2 and 3 done and live 24 Nov)
+**Current phase: 4. Enquiry automation and demo** (Phases 2 and 3 done and live 24 Nov; the group n8n project was cancelled 25 Nov)
 
 ## Phase 1. Scored basics (done 24 Nov)
 
 - [x] Client brief written and approved by Ella (WhatsApp, 23 Nov, 3:14 PM)
 - [x] 5 AI images made, prompts saved in the hand-in folder
 - [x] Story site live at royal-beads-edo.vercel.app (`main` is the live branch)
-- [x] Every Enquire button opens the group n8n form with Business prefilled
+- [x] Every Enquire button opens the n8n Enquire form
 - [x] Botpress chatbot embedded; 5 tests run and screenshotted (1 refusal)
-- [x] Group n8n workflow on n8n Cloud, node 1 "Enquiry form (Destine)" published
+- [x] n8n workflow on n8n Cloud, "Enquiry form" node published
 
 ## Phase 2. Fix the audit gaps (done 24 Nov)
 
@@ -42,14 +42,14 @@ Answers the client's main problem: customers can't see a set on themselves befor
 - [x] Wire the "Try it on" button to it
 - [x] Camera tested on a real phone (24 Nov)
 
-## Phase 4. Group work and demo (Fri 27 Nov)
+## Phase 4. Enquiry automation and demo (Fri 27 Nov)
 
 - [x] Workflow published, so the site's form is live (24 Nov)
-- [ ] Business dropdown filled with every group business
-- [x] Telegram chat ID set; alerts arrive in the group "Group 3 Capstone Project" (24 Nov)
-- [ ] 3 tests (HOT, WARM, CHECK) from 3 different websites, plus "hello"
-- [ ] Whole-workflow screenshot, every node renamed by its builder; list of who built what
-- [x] Group dashboard built at /dashboard: live counts by label and business, filterable list, checks the sheet every 20 s
+- [x] Workflow made Royal Beads Edo only (25 Nov): own form path `royal-beads-edo-enquiry`, no Business dropdown, AI sort and emails about the shop only, never rule in the sort and the emails
+- [x] Telegram alerts for HOT and CHECK (24 Nov)
+- [ ] Tests of the new form (HOT and CHECK; n8n free plan has few runs left)
+- [ ] Whole-workflow screenshot for the hand-in
+- [x] Enquiries dashboard at /dashboard: live counts by label, searchable list, checks the sheet every 20 s
 - [x] Dashboard link: Enquiries tab published as CSV, live at /dashboard
 - [x] Tutor's Botpress approval screenshot in the hand-in folder (24 Nov)
 - [x] Sheet screenshot with the HOT row in the hand-in folder (25 Nov)

@@ -36,7 +36,7 @@ const ease = [0.2, 0.7, 0.2, 1] as const;
 /**
  * The bridal regalia builder. The customer builds a bride, groom or couple look piece by piece,
  * sees it on an illustrated figure, and gets a price range for each piece and for the set.
- * "Enquire about this set" opens the group's n8n form with the set written into the message.
+ * "Enquire about this set" opens the Royal Beads Edo n8n form with the set written into the message.
  * Price ranges only, and never a ready date (docs/RULES.md, C1 and C3).
  */
 export default function Builder() {

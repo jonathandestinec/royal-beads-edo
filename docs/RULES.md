@@ -8,12 +8,12 @@ Every new feature, section, image, video or copy change is checked against this 
 2. If a line can't be ticked, stop and decide with Destine first.
 3. Before merging to `main` (the live branch): tick the list again against the preview link, on a phone.
 
-## Scored rules (60 individual points)
+## Scored rules
 
 ### Website: live, clear, works on a phone (20 pts)
 - R1. The **top of the page says what the business does, in one line**. Nothing (intro, video, overlay) may hide or delay that line.
 - R2. The site has **the sections promised in the client brief, section 6**: hero, sets by occasion, virtual try-on, meaning of the beads, how custom orders work (5 steps), real coral guide, gallery, location and opening hours, Enquire on every set. If a section is renamed, removed or changed, update the brief or keep the section.
-- R3. **Every Enquire/Book button opens the group's n8n form**: `https://deestnee.app.n8n.cloud/form/group-enquiry`, with `Business=Royal Beads Edo` prefilled. No other order route.
+- R3. **Every Enquire/Book button opens the Royal Beads Edo n8n form**: `https://deestnee.app.n8n.cloud/form/royal-beads-edo-enquiry`. Where a set is chosen, it is prefilled in `Message`. No other order route.
 - R4. Uses the **client's real name, area and services**: Royal Beads Edo, Oba Market area, Benin City, coral beads and traditional attire. No lorem ipsum, no "placeholder", "demo" or "assumption" text.
 - R5. **Looks good on a phone.** Check at 375 px wide: no sideways scroll, text readable, buttons tappable, chat bubble not covering buttons.
 - R6. **Live on a link** (royal-beads-edo.vercel.app). Never leave `main` broken.
@@ -30,8 +30,8 @@ Every new feature, section, image, video or copy change is checked against this 
 - R13. The bot uses the FAQ from the brief, a friendly tone, the business name, and **the never rule**. It sends people to the Enquire form.
 - R14. Any feature that talks about dates, prices or orders must follow the same rules as the bot (see Client rules below).
 
-### n8n node (10 pts)
-- R15. Node 1 "Enquiry form (Destine)" stays published and keeps the 5 agreed fields: Name, Email, Phone (optional), Business (dropdown), Message. Field labels must not change, because the site prefills `Business` and `Message`.
+### n8n enquiry automation (extra feature)
+- R15. The group n8n project was cancelled; the workflow is now the shop's own extra feature and is not scored. The "Enquiry form" node stays published with 4 fields: Name, Email, Phone (optional), Message. The `Message` label must not change, because the site prefills it. Emails and Telegram alerts follow C1.
 
 ### Client brief (10 pts)
 - R16. The brief stays **one page**, shows "approved", and names the problem and the never rule. Content changes need Ella's approval again.
@@ -56,7 +56,7 @@ Every new feature, section, image, video or copy change is checked against this 
 Rubric check for: <feature>
 [ ] R1 top line still visible first
 [ ] R2 brief sections intact (or brief updated)
-[ ] R3 Enquire goes to the n8n form with Business prefilled
+[ ] R3 Enquire goes to the Royal Beads Edo n8n form
 [ ] R4 real name, area, services; no placeholder/demo text
 [ ] R5 checked at 375 px on a phone
 [ ] R7 AI hero is still the first thing on the page
