@@ -47,7 +47,7 @@ Answers the client's main problem: customers can't see a set on themselves befor
 - [x] Workflow published, so the site's form is live (24 Nov)
 - [x] Workflow made Royal Beads Edo only (25 Nov): own form path `royal-beads-edo-enquiry`, no Business dropdown, AI sort and emails about the shop only, never rule in the sort and the emails
 - [x] Telegram alerts for HOT and CHECK (24 Nov)
-- [ ] Tests of the new form (HOT and CHECK; n8n free plan has few runs left)
+- [x] Tests of the new form: HOT and CHECK both sorted right, emailed, saved and alerted (25 Nov, 2 runs)
 - [ ] Whole-workflow screenshot for the hand-in
 - [x] Enquiries dashboard at /dashboard: live counts by label, searchable list, checks the sheet every 20 s
 - [x] Dashboard link: Enquiries tab published as CSV, live at /dashboard
