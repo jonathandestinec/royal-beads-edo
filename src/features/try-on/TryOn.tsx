@@ -345,6 +345,19 @@ export default function TryOn() {
           </div>
         </div>
 
+        <Link
+          href="/regalia"
+          className="group flex items-center justify-between gap-3 rounded-2xl border-[1.5px] border-saoky bg-night/40 px-4 py-3 text-cream no-underline transition-colors hover:border-taupe"
+        >
+          <span className="flex flex-col">
+            <span className="font-display soft text-lg leading-tight font-semibold">Build your full wedding set</span>
+            <span className="text-[13px] text-sand">Crown, neck piece, wrists and attire, for the bride, the groom or both</span>
+          </span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-coral-soft transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </Link>
+
         {/* The last row leaves room on the right for the chat bubble. */}
         <div className="mt-auto flex min-h-[76px] items-center pr-[84px]">
           {live ? (

@@ -57,9 +57,14 @@ export function TryOnTeaser() {
           <p className="m-0 max-w-[26em] text-lg leading-relaxed text-sand">
             Try a crown or necklace on with your phone camera. Nothing leaves your phone.
           </p>
-          <Link href="/try-on" className={`${pill} ${pillStyles.cream}`}>
-            Try it on
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/try-on" className={`${pill} ${pillStyles.cream}`}>
+              Try it on
+            </Link>
+            <Link href="/regalia" className={`${pill} ${pillStyles.ghost}`}>
+              Build your wedding set
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
