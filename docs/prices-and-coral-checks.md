@@ -1,6 +1,6 @@
 # Prices and coral checks (site and chatbot source)
 
-Researched 24 Nov 2026 because Ella has no fixed list yet. Use the same wording on the site and in the Chatbase FAQ so they never disagree. Prices are ranges only; the final price is agreed per set, and ready dates are only ever confirmed by the workshop (the never rule).
+Researched 24 Nov 2026 because Ella has no fixed list yet. Use the same wording on the site and in the chatbot FAQ so they never disagree. Prices are ranges only; the final price is agreed per set, and ready dates are only ever confirmed by the workshop (the never rule).
 
 ## Price ranges shown on the site
 
@@ -12,6 +12,17 @@ Researched 24 Nov 2026 because Ella has no fixed list yet. Use the same wording 
 | Celebrations | From ₦40,000 |
 
 Basis: Nigerian listings for single coral necklaces start around ₦20,000 to ₦60,000 ([Jiji](https://jiji.ng/ibeju/26-beads)), while full Edo bridal sets sold abroad run from about $150 to $400, with crown sets above $1,000 ([Etsy](https://www.etsy.com/market/edo_bead_set), [Gelestore](https://gelestore.com/collections/coral-beads-traditional-coral/edo-bride), [NaijaExportWorld](https://naijaexportworld.com/product/edo-coral-beads-benin-coral-beads-nigerian-wedding-beads-african-beads-2/)). Full real-coral regalia sits well above single necklaces, so the wedding and chieftaincy ranges start higher. Orders abroad are quoted in pounds or dollars.
+
+## Full ranges used by the chatbot (agreed 25 Nov)
+
+The site cards show the starting prices above. The chatbot and its FAQ doc give the full range. The wedding range is the regalia builder's bride set (crown, neck piece, wrist beads), so it matches /regalia.
+
+| Occasion | Range |
+| --- | --- |
+| Wedding bride set | ₦450,000 to ₦880,000 to buy, ₦80,000 to ₦140,000 to rent; attire extra |
+| Chieftaincy | ₦300,000 to ₦700,000 |
+| Festivals | ₦60,000 to ₦150,000 |
+| Celebrations | ₦40,000 to ₦120,000 |
 
 ## How to tell real coral (non-destructive checks only)
 
