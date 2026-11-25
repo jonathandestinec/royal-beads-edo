@@ -16,7 +16,7 @@ export const NECK = { w: 1200, h: 620, ax: 600, ay: 40, /** sprite width in face
 /** Crown sprite: the anchor is the centre of the crown's base, on the hairline. */
 export const CROWN = { w: 1000, h: 820, ax: 500, ay: 790, faces: 1.18 };
 
-const CORAL = ["#c63f2b", "#d4553c", "#b8382a", "#d9603f", "#c94b35", "#cf4a2f"];
+export const CORAL = ["#c63f2b", "#d4553c", "#b8382a", "#d9603f", "#c94b35", "#cf4a2f"];
 
 type RGB = [number, number, number];
 const hex = (h: string): RGB => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)) as RGB;
@@ -34,9 +34,9 @@ function rng(seed: number) {
   };
 }
 
-type BeadOpts = { gold?: boolean; shade?: number; alpha?: number; color?: string };
+export type BeadOpts = { gold?: boolean; shade?: number; alpha?: number; color?: string };
 
-function bead(ctx: CanvasRenderingContext2D, x: number, y: number, r: number, o: BeadOpts = {}) {
+export function bead(ctx: CanvasRenderingContext2D, x: number, y: number, r: number, o: BeadOpts = {}) {
   const shade = o.shade ?? 0;
   const base = o.gold ? hex("#cfa75a") : hex(o.color ?? CORAL[0]);
   const light = o.gold ? hex("#fbeab4") : mix(base, hex("#ffd9c4"), 0.55);

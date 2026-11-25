@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { FaceLandmarker } from "@mediapipe/tasks-vision";
 import { CowrieMark } from "@/components/brand/CowrieMark";
 import { EnquireButton, pill, pillStyles } from "@/components/ui/EnquireButton";
-import { CROWNS, NECKLACES, lookMessage } from "./sets";
+import { CROWNS, NECKLACES, findCrown, findNecklace, lookMessage } from "./sets";
 import { crownSprite, necklaceSprite, thumb } from "./sprites";
 import type { Mode, Pose, Smoother as SmootherType } from "./tracking";
 
@@ -29,13 +29,18 @@ export default function TryOn() {
   const smootherRef = useRef<SmootherType | null>(null);
   const poseRef = useRef<Pose | null>(null);
   const photoRef = useRef<HTMLCanvasElement | null>(null);
-  const selRef = useRef({ necklace: NECKLACES[0].id, crown: CROWNS[0].id });
+  // A look can arrive from the regalia builder as ?necklace=…&crown=…
+  const [initial] = useState(() => {
+    const q = new URLSearchParams(window.location.search);
+    return { necklace: findNecklace(q.get("necklace") ?? "").id, crown: findCrown(q.get("crown") ?? "").id };
+  });
+  const selRef = useRef(initial);
   const faceRef = useRef(false);
 
   const [view, setView] = useState<View>("start");
   const [error, setError] = useState("");
-  const [necklace, setNecklace] = useState(NECKLACES[0].id);
-  const [crown, setCrown] = useState(CROWNS[0].id);
+  const [necklace, setNecklace] = useState(initial.necklace);
+  const [crown, setCrown] = useState(initial.crown);
   const [face, setFace] = useState(false);
   const [flash, setFlash] = useState(false);
   const [thumbs] = useState(() => ({
