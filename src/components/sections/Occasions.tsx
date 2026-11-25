@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { PRICE_ON_REQUEST, occasions, slate, type Occasion } from "@/data/content";
+import { occasions, slate, type Occasion } from "@/data/content";
 import { buildEnquireUrl, enquireLinkProps } from "@/config/site";
 import { ConceptLabel, PhotoCredit } from "@/components/film/Film";
 import { CowrieMark } from "@/components/brand/CowrieMark";
@@ -102,7 +102,7 @@ function Card({ o, className }: { o: Occasion; className: string }) {
         <span className="flex flex-col gap-1">
           <span className="font-display soft text-[26px] leading-none font-semibold">{o.title}</span>
           <span className="text-[15px] leading-snug text-saoky">{o.line}</span>
-          <span className="mt-1 font-formal text-[15px] text-rust">{PRICE_ON_REQUEST}</span>
+          <span className="mt-1 font-formal text-[15px] text-rust">{o.price}</span>
         </span>
         <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-coral text-[#fff5ec] transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">

@@ -12,10 +12,12 @@ import { Figure } from "./Figure";
 import {
   DEFAULT_LOOK,
   PIECES,
-  PRICE_ON_REQUEST,
   SLOTS,
   enquiryMessage,
+  partyRange,
   piece,
+  pieceRange,
+  rangeText,
   type Look,
   type Party,
   type Plan,
@@ -33,9 +35,9 @@ const ease = [0.2, 0.7, 0.2, 1] as const;
 
 /**
  * The bridal regalia builder. The customer builds a bride, groom or couple look piece by piece,
- * and sees it on an illustrated figure. "Enquire about this set" opens the group's n8n form with
- * the set written into the message. No prices (price on request) and never a ready date
- * (docs/RULES.md, C1 and C3).
+ * sees it on an illustrated figure, and gets a price range for each piece and for the set.
+ * "Enquire about this set" opens the group's n8n form with the set written into the message.
+ * Price ranges only, and never a ready date (docs/RULES.md, C1 and C3).
  */
 export default function Builder() {
   const [party, setParty] = useState<Party>("bride");
@@ -51,6 +53,7 @@ export default function Builder() {
   });
 
   const who: Who = party === "couple" ? editing : party;
+  const total = partyRange(party, looks, plan);
   const whos: Who[] = party === "couple" ? ["bride", "groom"] : [party];
 
   const choose = (slot: Slot, id: string) => setLooks((l) => ({ ...l, [who]: { ...l[who], [slot]: id } }));
@@ -102,7 +105,18 @@ export default function Builder() {
         <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-3 px-5 pb-3 lg:px-8 lg:pb-8">
           <div aria-live="polite" className="rounded-2xl bg-night/75 px-4 py-2.5 backdrop-blur-sm">
             <p className="m-0 text-[11px] uppercase tracking-[0.2em] text-sand/80">{plan === "rent" ? "To rent" : "To buy"}</p>
-            <p className="m-0 font-formal text-[clamp(16px,4.2vw,22px)] leading-tight text-cream">Price on request</p>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.p
+                key={`${total[0]}-${total[1]}`}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.3, ease }}
+                className="m-0 font-formal text-[clamp(18px,4.6vw,28px)] leading-tight text-cream"
+              >
+                {rangeText(total)}
+              </motion.p>
+            </AnimatePresence>
           </div>
         </div>
       </div>
@@ -114,7 +128,7 @@ export default function Builder() {
           Build your wedding set
         </h1>
         <p className="mt-4 mb-0 text-base leading-relaxed text-sand">
-          Choose each piece for the bride, the groom or both, and see the look come together. Buy your set to keep, or rent the beads for your day. Our team sends your quote when you enquire.
+          Choose each piece for the bride, the groom or both, and see the price range as you go. Buy your set to keep, or rent the beads for your day.
         </p>
 
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -162,6 +176,8 @@ export default function Builder() {
                 <div className="flex flex-col gap-2">
                   {PIECES[who][s.id].map((p) => {
                     const on = looks[who][s.id] === p.id;
+                    const r = pieceRange(p, plan);
+                    const keep = plan === "rent" && p.buy && !p.rent;
                     return (
                       <button
                         key={p.id}
@@ -188,9 +204,18 @@ export default function Builder() {
                           <span className={`text-[15px] font-semibold ${on ? "text-cream" : "text-sand"}`}>{p.name}</span>
                           {p.line && <span className="text-[13px] leading-snug text-muted">{p.line}</span>}
                         </span>
-                        {plan === "rent" && !p.rentable && p.id !== "none" && (
-                          <span className="shrink-0 text-right text-[12px] leading-tight text-muted">To keep</span>
-                        )}
+                        <span className="shrink-0 text-right font-formal text-[13px] leading-tight text-gold-soft">
+                          {r ? (
+                            <>
+                              {rangeText(r).split(" to ").map((v, j) => (
+                                <span key={j} className="block">
+                                  {j ? `to ${v}` : v}
+                                </span>
+                              ))}
+                              {keep && <span className="block font-sans text-[11px] text-muted">to keep</span>}
+                            </>
+                          ) : null}
+                        </span>
                       </button>
                     );
                   })}
@@ -200,7 +225,7 @@ export default function Builder() {
           </motion.div>
         </AnimatePresence>
 
-        {/* The set and the enquiry */}
+        {/* The set, its price range and the enquiry */}
         <section aria-labelledby="your-set" className="notch mt-10 bg-cream p-6 text-espresso">
           <h2 id="your-set" className="m-0 font-display soft text-[26px] leading-none font-semibold">
             Your set
@@ -212,10 +237,11 @@ export default function Builder() {
                 {SLOTS.map((s) => {
                   const p = piece(w, s.id, looks[w][s.id]);
                   if (p.id === "none") return null;
+                  const r = pieceRange(p, plan);
                   return (
                     <li key={s.id} className="flex items-baseline justify-between gap-4 border-b border-sand py-2 text-[15px]">
                       <span>{p.name}</span>
-                      <span className="shrink-0 text-right text-[13px] text-saoky">{plan === "rent" && p.rentable ? "To rent" : "To keep"}</span>
+                      <span className="shrink-0 text-right font-formal text-[14px] text-saoky">{r ? rangeText(r) : ""}</span>
                     </li>
                   );
                 })}
@@ -223,13 +249,14 @@ export default function Builder() {
             </div>
           ))}
           <div className="mt-5 flex flex-wrap items-baseline justify-between gap-2">
-            <span className="font-formal text-[19px] text-rust">{PRICE_ON_REQUEST}</span>
+            <span className="text-sm font-semibold">{plan === "rent" ? "Price range to rent" : "Price range to buy"}</span>
+            <span className="font-formal text-[22px] text-rust">{rangeText(total)}</span>
           </div>
           {plan === "rent" && (
             <p className="mt-2 mb-0 text-[13px] leading-relaxed text-saoky">Beads are rented for your day. Attire is made to measure, so it is yours to keep.</p>
           )}
           <p className="mt-4 mb-0 text-[13px] leading-relaxed text-saoky">
-            Each set is priced to the pieces you choose, so our team sends your quote when you enquire. Every set is made to order: custom sets usually take {site.customSetLeadTime}, and only our workshop confirms your ready date.
+            These are price ranges. Your final price is agreed with our team. Every set is made to order: custom sets usually take {site.customSetLeadTime}, and only our workshop confirms your ready date.
           </p>
           <EnquireButton message={enquiryMessage(party, looks, plan)} className="mt-6 w-full">
             Enquire about this set

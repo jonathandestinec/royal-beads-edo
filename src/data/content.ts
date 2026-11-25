@@ -50,9 +50,6 @@ export function slate(id: ChapterId): string {
   return `${String(i + 1).padStart(2, "0")} · ${chapters[i].label}`;
 }
 
-/** Shown wherever a price would be. No prices on the site: the team quotes every set (rule C3). */
-export const PRICE_ON_REQUEST = "Price on request · Enquire for a quote";
-
 export type Occasion = {
   title: string;
   line: string;
@@ -62,12 +59,15 @@ export type Occasion = {
   concept?: boolean;
   /** Author and licence, for licensed photos. */
   credit?: string;
+  /** Price range shown on the card. Ranges only: the final price is agreed per set. */
+  price: string;
 };
 
 export const occasions: Occasion[] = [
   {
     title: "Weddings",
     line: "Bride and groom regalia, our most requested sets",
+    price: "Buy from ₦450,000 · rent from ₦80,000",
     image: IMG.wedding,
     alt: "A bride in a coral crown and layered coral collar with her groom in a coral cap and necklace",
     focus: "50% 30%",
@@ -76,6 +76,7 @@ export const occasions: Occasion[] = [
   {
     title: "Chieftaincy",
     line: "Beads for titles and ceremonies",
+    price: "From ₦300,000",
     image: IMG.queen,
     alt: "A bronze statue wearing layered coral necklaces and cuffs",
     credit: PHOTO_CREDIT[IMG.queen],
@@ -84,6 +85,7 @@ export const occasions: Occasion[] = [
   {
     title: "Festivals",
     line: "Igue and other cultural days",
+    price: "From ₦60,000",
     image: IMG.bride,
     alt: "A woman in a coral bead crown and coral necklaces",
     credit: PHOTO_CREDIT[IMG.bride],
@@ -92,6 +94,7 @@ export const occasions: Occasion[] = [
   {
     title: "Celebrations",
     line: "Birthdays, naming days and family occasions",
+    price: "From ₦40,000",
     image: IMG.bracelets,
     alt: "A hand wearing three stacked coral bead bracelets",
     focus: "40% 40%",

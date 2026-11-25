@@ -40,7 +40,7 @@ Every new feature, section, image, video or copy change is checked against this 
 
 - C1. **Never confirm, promise or guess a custom-set ready date.** Only the workshop confirms ready dates. No feature, copy, email or bot answer may show a date.
 - C2. Custom requests for an event **less than 3 weeks away** go to a person (CHECK).
-- C3. **No prices; quotes on request through the Enquire form.** Every set is "Price on request · Enquire for a quote"; the team sends the quote. (Decided 24 Nov: there are no confirmed figures yet.)
+- C3. **Price ranges only.** Final prices are agreed with the team.
 - C4. Cultural claims stay short and general. Don't invent meanings; avoid styles reserved for the Oba and royalty.
 
 ## Safety rules (from the brief)
@@ -62,6 +62,6 @@ Rubric check for: <feature>
 [ ] R7 AI hero is still the first thing on the page
 [ ] R10/R11 every image labelled (Concept image or photo credit)
 [ ] C1 no ready dates anywhere
-[ ] C3 no prices; quotes on request through the Enquire form
+[ ] C3 prices as ranges only
 [ ] S2 no keys or tokens; S3 nothing uploaded
 ```
