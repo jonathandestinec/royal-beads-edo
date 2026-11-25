@@ -13,6 +13,7 @@ const links = [
   { href: "#care", label: "Real coral" },
   { href: "#gallery", label: "Gallery" },
   { href: "#enquire", label: "Custom orders" },
+  { href: "/regalia", label: "Build your set" },
 ];
 
 /** Transparent over the hero, then a solid brown bar once the visitor scrolls. */
@@ -36,7 +37,11 @@ export function Header() {
         </a>
         <nav aria-label="Site" className="hidden gap-7 text-base lg:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-cream no-underline transition-colors hover:text-sand">
+            <a
+              key={l.href}
+              href={l.href}
+              className={`no-underline transition-colors ${l.href.startsWith("/") ? "text-coral-soft hover:text-cream" : "text-cream hover:text-sand"}`}
+            >
               {l.label}
             </a>
           ))}
@@ -62,7 +67,7 @@ export function Header() {
       {open && (
         <nav id="mobile-menu" aria-label="Site" className="flex flex-col gap-1 px-5 pb-5 lg:hidden">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded-xl px-2 py-3 text-lg text-cream no-underline hover:bg-saoky">
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className={`rounded-xl px-2 py-3 text-lg no-underline hover:bg-saoky ${l.href.startsWith("/") ? "text-coral-soft" : "text-cream"}`}>
               {l.label}
             </a>
           ))}
