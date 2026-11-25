@@ -1,6 +1,6 @@
 /**
- * Reading the group's "Enquiries" sheet (published CSV) into typed rows.
- * Columns: Date, Name, Email, Phone, Business, Message, Label.
+ * Reading the "Enquiries" sheet (published CSV) into typed rows.
+ * Columns: Date, Name, Email, Phone, Message, Label. Other columns are ignored.
  */
 
 export const LABELS = ["HOT", "WARM", "CHECK"] as const;
@@ -14,7 +14,6 @@ export type Enquiry = {
   name: string;
   email: string;
   phone: string;
-  business: string;
   message: string;
   label: Label | null;
 };
@@ -79,7 +78,6 @@ export function toEnquiries(rows: string[][]): Enquiry[] {
     name: col("name"),
     email: col("email"),
     phone: col("phone"),
-    business: col("business"),
     message: col("message"),
     label: col("label"),
   };
@@ -98,7 +96,6 @@ export function toEnquiries(rows: string[][]): Enquiry[] {
       name: get(idx.name),
       email: get(idx.email),
       phone: get(idx.phone),
-      business: get(idx.business) || "Not chosen",
       message: get(idx.message),
       label: (LABELS as readonly string[]).includes(labelText) ? (labelText as Label) : null,
     };

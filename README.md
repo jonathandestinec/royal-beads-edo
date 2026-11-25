@@ -9,7 +9,7 @@ Built as a Tech4Youth (AG Southern AI Class) capstone project and intended as a 
 - Presents coral bead sets **by occasion** (weddings, chieftaincy, festivals, celebrations)
 - Explains how **custom orders** work (2 to 3 weeks, with ready dates confirmed only by the workshop)
 - Tells the **story and meaning of Edo coral**, plus a **coral care and authenticity** guide
-- Sends every enquiry to the group's shared **n8n Enquire form**
+- Sends every enquiry to the shop's own **n8n Enquire form** (AI sort, sheet, email reply, Telegram alert)
 - Includes the **Taoué Assistant** (Botpress) that answers common questions
 - Planned: a **bridal regalia builder** and an in-browser **virtual try-on** (MediaPipe Face Landmarker)
 
@@ -68,13 +68,13 @@ docs/
 
 ## Configuration
 
-Set the group's n8n form link in `src/config/site.ts`:
+Set the n8n form link in `src/config/site.ts`:
 
 ```ts
 export const ENQUIRE_FORM_URL = "https://…";
 ```
 
-If it is ever emptied, Enquire buttons fall back to the on-page Enquire section. Every link pre-fills the Business field and, where it can, the Message.
+If it is ever emptied, Enquire buttons fall back to the on-page Enquire section. Where it can, a link pre-fills the Message with the chosen set.
 
 ## The never rule
 

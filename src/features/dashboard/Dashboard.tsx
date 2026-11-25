@@ -31,7 +31,6 @@ export function Dashboard() {
   const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [now, setNow] = useState(() => Date.now());
   const [fresh, setFresh] = useState<Set<string>>(new Set());
-  const [business, setBusiness] = useState("all");
   const [label, setLabel] = useState<Label | "all">("all");
   const [query, setQuery] = useState("");
   const [showContacts, setShowContacts] = useState(false);
@@ -82,26 +81,20 @@ export function Dashboard() {
 
   const counts = useMemo(() => {
     const byLabel: Record<Label, number> = { HOT: 0, WARM: 0, CHECK: 0 };
-    const byBusiness = new Map<string, number>();
-    for (const e of rows) {
-      if (e.label) byLabel[e.label]++;
-      byBusiness.set(e.business, (byBusiness.get(e.business) ?? 0) + 1);
-    }
-    return { byLabel, byBusiness: [...byBusiness.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])) };
+    for (const e of rows) if (e.label) byLabel[e.label]++;
+    return { byLabel };
   }, [rows]);
 
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
     return rows.filter(
       (e) =>
-        (business === "all" || e.business === business) &&
         (label === "all" || e.label === label) &&
-        (!q || `${e.name} ${e.message} ${e.business}`.toLowerCase().includes(q)),
+        (!q || `${e.name} ${e.message}`.toLowerCase().includes(q)),
     );
-  }, [rows, business, label, query]);
+  }, [rows, label, query]);
 
   const total = rows.length;
-  const maxBusiness = counts.byBusiness[0]?.[1] ?? 1;
   const freshCount = fresh.size;
 
   return (
@@ -113,7 +106,7 @@ export function Dashboard() {
             Enquiries dashboard
           </h1>
           <p className="m-0 mt-2 text-[14px] text-muted">
-            Every enquiry from the group&rsquo;s shared form, sorted by the AI. Read only.
+            Every enquiry from the Royal Beads Edo Enquire form, sorted by the AI. Read only.
           </p>
         </div>
         <LiveBadge status={status} updatedAt={updatedAt} now={now} onRefresh={load} />
@@ -169,37 +162,7 @@ export function Dashboard() {
             ))}
           </section>
 
-          <div className="mt-6 grid gap-6 lg:grid-cols-[300px_1fr]">
-            {/* By business */}
-            <section aria-labelledby="by-business" className="rounded-xl bg-espresso/70 p-4 lg:self-start">
-              <h2 id="by-business" className="m-0 text-[12px] font-medium tracking-[0.14em] text-muted uppercase">
-                By business
-              </h2>
-              <ul className="m-0 mt-3 list-none space-y-1 p-0">
-                {counts.byBusiness.map(([name, n]) => (
-                  <li key={name}>
-                    <button
-                      type="button"
-                      onClick={() => setBusiness(business === name ? "all" : name)}
-                      aria-pressed={business === name}
-                      className={`w-full rounded-md px-2 py-2 text-left transition ${business === name ? "bg-saoky" : "hover:bg-saoky/60"}`}
-                    >
-                      <span className="flex justify-between gap-3 text-[14px] text-cream">
-                        <span className="truncate">{name}</span>
-                        <span className="tabular-nums text-sand">{n}</span>
-                      </span>
-                      <span className="mt-1.5 block h-1 rounded-full bg-night">
-                        <span className="block h-1 rounded-full bg-rust" style={{ width: `${(n / maxBusiness) * 100}%` }} />
-                      </span>
-                    </button>
-                  </li>
-                ))}
-                {counts.byBusiness.length === 0 && status.kind === "ok" && (
-                  <li className="text-[14px] text-taupe">No enquiries yet.</li>
-                )}
-              </ul>
-            </section>
-
+          <div className="mt-6">
             {/* Latest enquiries */}
             <section aria-labelledby="latest" className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
@@ -216,29 +179,14 @@ export function Dashboard() {
                 </button>
               </div>
 
-              <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-[1fr_200px]">
-                <input
-                  type="search"
-                  value={query}
-                  onChange={(ev) => setQuery(ev.target.value)}
-                  placeholder="Search name or message"
-                  aria-label="Search name or message"
-                  className="min-w-0 rounded-lg bg-espresso px-3 py-2.5 text-[15px] text-cream ring-1 ring-saoky outline-none placeholder:text-taupe focus:ring-gold"
-                />
-                <select
-                  value={business}
-                  onChange={(ev) => setBusiness(ev.target.value)}
-                  aria-label="Filter by business"
-                  className="min-w-0 rounded-lg bg-espresso px-3 py-2.5 text-[15px] text-cream ring-1 ring-saoky outline-none focus:ring-gold"
-                >
-                  <option value="all">All businesses</option>
-                  {counts.byBusiness.map(([name]) => (
-                    <option key={name} value={name}>
-                      {name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              <input
+                type="search"
+                value={query}
+                onChange={(ev) => setQuery(ev.target.value)}
+                placeholder="Search name or message"
+                aria-label="Search name or message"
+                className="mt-3 w-full min-w-0 rounded-lg bg-espresso px-3 py-2.5 text-[15px] text-cream ring-1 ring-saoky outline-none placeholder:text-taupe focus:ring-gold"
+              />
 
               {freshCount > 0 && (
                 <button
@@ -263,7 +211,7 @@ export function Dashboard() {
           </div>
 
           <p className="mt-10 max-w-[70ch] text-[12px] leading-relaxed text-taupe">
-            This page reads the group Google Sheet&rsquo;s published CSV and checks it every {DASHBOARD_REFRESH_SECONDS}{" "}
+            This page reads the enquiries Google Sheet&rsquo;s published CSV and checks it every {DASHBOARD_REFRESH_SECONDS}{" "}
             seconds. Anyone with the CSV link can read the sheet, so it holds test enquiries only. Contacts stay hidden
             until you tap &ldquo;Show contacts&rdquo;.
           </p>
@@ -325,7 +273,6 @@ function EnquiryRow({ e, isNew, showContacts }: { e: Enquiry; isNew: boolean; sh
       </div>
       <p className="m-0 mt-2 text-[15px] leading-relaxed break-words text-cream">{e.message || "No message"}</p>
       <p className="m-0 mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-muted">
-        <span className="text-sand">{e.business}</span>
         {email && <span className="break-all">{email}</span>}
         {phone && <span>{phone}</span>}
       </p>
@@ -336,9 +283,9 @@ function EnquiryRow({ e, isNew, showContacts }: { e: Enquiry; isNew: boolean; sh
 function SetupSteps() {
   return (
     <section className="mt-8 max-w-[640px] rounded-xl bg-espresso p-5 text-[15px] leading-relaxed text-cream">
-      <h2 className="m-0 font-display text-[22px] text-paper">Connect the group sheet</h2>
+      <h2 className="m-0 font-display text-[22px] text-paper">Connect the enquiries sheet</h2>
       <ol className="mt-3 space-y-2 pl-5">
-        <li>Open the group Google Sheet.</li>
+        <li>Open the enquiries Google Sheet.</li>
         <li>File, Share, Publish to web.</li>
         <li>Choose the &ldquo;Enquiries&rdquo; tab and &ldquo;Comma-separated values (.csv)&rdquo;, then Publish.</li>
         <li>

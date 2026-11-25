@@ -10,7 +10,7 @@ This is Destine's capstone site for Royal Beads Edo (brand Taoué). It is graded
 
 ## While building
 
-- Follow the client rules. Never show or promise a custom-set ready date. Show price ranges only. Every Enquire goes to the group n8n form with `Business=Royal Beads Edo` prefilled.
+- Follow the client rules. Never show or promise a custom-set ready date. Show price ranges only. Every Enquire goes to the Royal Beads Edo n8n form (`royal-beads-edo-enquiry`), with the chosen set prefilled in `Message` where there is one.
 - Every AI image gets the small "Concept image" tag. Every third-party photo gets an on-image credit.
 - Write copy as a real business. No demo, placeholder or assumption wording.
 - Commits use Destine's identity only. No Claude author, no Co-Authored-By trailer, no session link.

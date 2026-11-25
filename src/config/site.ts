@@ -4,22 +4,16 @@
  */
 
 /**
- * The group's shared n8n Enquire form (Form Trigger, production URL).
+ * The Royal Beads Edo n8n Enquire form (Form Trigger, production URL).
  * If this is ever emptied, Enquire buttons fall back to the #enquire section on the page.
  */
-export const ENQUIRE_FORM_URL = "https://deestnee.app.n8n.cloud/form/group-enquiry";
-
-/** Name of the form's business dropdown field, pre-filled so enquiries are routed to us. */
-export const ENQUIRE_BUSINESS_FIELD = "Business";
+export const ENQUIRE_FORM_URL = "https://deestnee.app.n8n.cloud/form/royal-beads-edo-enquiry";
 
 /**
  * Name of the n8n form field to pre-fill with a chosen set (regalia builder, try-on).
- * Must match the field label in the group's form exactly.
+ * Must match the field label in the form exactly.
  */
 export const ENQUIRE_MESSAGE_FIELD = "Message";
-
-/** Value of the "Business" dropdown in the shared group form. */
-export const ENQUIRE_BUSINESS_VALUE = "Royal Beads Edo";
 
 export const site = {
   /** Brand name. Always shown with the client's real name. */
@@ -67,7 +61,6 @@ export const enquireLinkProps = ENQUIRE_FORM_URL ? { target: "_blank", rel: "noo
 export function buildEnquireUrl(message?: string): string {
   if (!ENQUIRE_FORM_URL) return "#enquire";
   const url = new URL(ENQUIRE_FORM_URL);
-  url.searchParams.set(ENQUIRE_BUSINESS_FIELD, ENQUIRE_BUSINESS_VALUE);
   if (message) url.searchParams.set(ENQUIRE_MESSAGE_FIELD, message);
   return url.toString();
 }
@@ -80,7 +73,7 @@ export const CHAT_INJECT_SRC = "https://cdn.botpress.cloud/webchat/v5.0/inject.j
 export const CHAT_CONFIG_SRC = "https://files.bpcontent.cloud/2026/11/24/14/20261124142712-I5MLIQE7.js";
 
 /**
- * Group admin dashboard (/dashboard). The "Enquiries" tab of the group Google Sheet,
+ * Enquiries dashboard (/dashboard). The "Enquiries" tab of the enquiries Google Sheet,
  * published to the web as CSV (File > Share > Publish to web > Enquiries > CSV).
  * The link is public by design: the sheet holds test enquiries only. Empty shows the setup steps.
  */

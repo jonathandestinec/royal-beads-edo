@@ -17,7 +17,7 @@ type EnquireButtonProps = {
   className?: string;
 };
 
-/** The main call to action. Opens the group's n8n Enquire form (or the on-page section until it exists). */
+/** The main call to action. Opens the Royal Beads Edo n8n Enquire form (or the on-page section until it exists). */
 export function EnquireButton({
   message,
   children = "Enquire",
